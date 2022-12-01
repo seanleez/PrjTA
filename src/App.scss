@@ -1,0 +1,15 @@
+@import "./styles/variable.scss";
+@import "./styles/mixin.scss";
+
+.App {
+  @include flex_center();
+  width: 100%;
+  height: 600px;
+  background-color: var(--black);
+}
+
+@include responsive(md) {
+  .App {
+    background-color: var(--gray);
+  }
+}

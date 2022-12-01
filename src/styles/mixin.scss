@@ -1,0 +1,40 @@
+@import "./variable.scss";
+
+// Reponsive
+@mixin responsive($canvas) {
+  @if $canvas ==2xl {
+    @media screen and (max-width: 1440px) {
+      @content;
+    }
+  } @else if $canvas ==xl {
+    @media screen and (max-width: 1280px) {
+      @content;
+    }
+  } @else if $canvas ==lg {
+    @media screen and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $canvas ==md {
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+  } @else if $canvas ==sm {
+    @media screen and (max-width: 640px) {
+      @content;
+    }
+  }
+}
+
+@mixin flex-center($x: center, $y: center) {
+  display: flex;
+  justify-content: $x;
+  align-items: $y;
+}
+@mixin flex-x($x: center) {
+  display: flex;
+  justify-content: $x;
+}
+@mixin flex-y($y: center) {
+  display: flex;
+  align-items: $y;
+}
