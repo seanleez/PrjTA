@@ -1,11 +1,11 @@
-import Header from "./Header";
-import SideBar from "./Sidebar";
+import { Footer, Header } from "./component";
 
 const DefaultLayout: React.FC<any> = ({ children }) => {
   return (
     <div>
       <Header />
-      <SideBar />
+      <div>{children}</div>
+      <Footer />
     </div>
   );
 };

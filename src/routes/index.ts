@@ -1,17 +1,36 @@
-import { IRoute } from "@/constants/interface";
-import Following from "@/pages/Following";
-import Home from "@/pages/Home";
+import { IRoute } from '@/constants/interface';
+import {
+  AboutUs,
+  EditPersonalInfor,
+  Home,
+  ImageDetail,
+  Login,
+  Register,
+} from '@/pages';
 
 const publicRoutes: IRoute[] = [
+  { path: '/', component: Home },
+  { path: '/about-us', component: AboutUs },
   {
-    path: "/",
-    component: Home,
+    path: '/image-detail/:id',
+    component: ImageDetail,
   },
   {
-    path: "/following",
-    component: Following,
+    path: '/register',
+    component: Register,
+    layout: 'auth',
+  },
+  {
+    path: '/login',
+    component: Login,
+    layout: 'auth',
   },
 ];
-const privateRoutes: IRoute[] = [];
+const privateRoutes: IRoute[] = [
+  {
+    path: '/edit-information',
+    component: EditPersonalInfor,
+  },
+];
 
 export { publicRoutes, privateRoutes };
