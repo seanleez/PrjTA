@@ -10,27 +10,13 @@ import {
 
 const publicRoutes: IRoute[] = [
   { path: '/', component: Home },
+  { path: '/image-detail/:id', component: ImageDetail },
+  { path: '/register', component: Register },
+  { path: '/login', component: Login },
   { path: '/about-us', component: AboutUs },
-  {
-    path: '/image-detail/:id',
-    component: ImageDetail,
-  },
-  {
-    path: '/register',
-    component: Register,
-    layout: 'auth',
-  },
-  {
-    path: '/login',
-    component: Login,
-    layout: 'auth',
-  },
 ];
 const privateRoutes: IRoute[] = [
-  {
-    path: '/edit-information',
-    component: EditPersonalInfor,
-  },
+  { path: '/edit-information', component: EditPersonalInfor },
 ];
 
 export { publicRoutes, privateRoutes };

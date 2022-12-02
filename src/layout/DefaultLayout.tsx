@@ -1,10 +1,10 @@
-import { Footer, Header } from "./component";
+import { Footer, Header } from './component';
 
 const DefaultLayout: React.FC<any> = ({ children }) => {
   return (
     <div>
       <Header />
-      <div>{children}</div>
+      <>{children}</>
       <Footer />
     </div>
   );
