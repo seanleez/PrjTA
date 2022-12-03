@@ -1,5 +1,3 @@
-import React from "react";
-
 const ImageDetail: React.FC = () => {
   return <h1>ImageDetail Page</h1>;
 };
