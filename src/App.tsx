@@ -1,4 +1,4 @@
-import { publicRoutes } from '@/routes';
+import { publicRoutes } from '@routes';
 import { Route, Routes } from 'react-router-dom';
 import { IRoute } from './constants/interface';
 import { DefaultLayout } from './layout';
