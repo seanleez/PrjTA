@@ -1,0 +1,18 @@
+.modal-dialog {
+  text-align: center;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 70px;
+      height: auto;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    min-width: 200px;
+  }
+}
