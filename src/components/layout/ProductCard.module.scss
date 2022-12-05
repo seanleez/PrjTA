@@ -1,0 +1,70 @@
+@import "../../styles/mixin.scss";
+
+.card {
+  width: 23.5%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 15px !important;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    border: 2px solid var(--primary);
+    border-radius: 15px;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    .infor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      background-color: var(--primary);
+      width: 30%;
+      height: 30px;
+      border-radius: 15px;
+
+      &.price {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .title {
+    margin: 10px 0;
+  }
+
+  .actions {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    button {
+      display: block;
+      height: 35px;
+      width: 40%;
+    }
+  }
+}
+
+@include responsive(xl) {
+  .card {
+    width: 32%;
+  }
+}
+
+@include responsive(lg) {
+  .card {
+    width: 49%;
+  }
+}
+@include responsive(sm) {
+  .card {
+    width: 100%;
+  }
+}

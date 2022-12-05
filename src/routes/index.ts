@@ -1,4 +1,4 @@
-import { IRoute } from '@constants/interface';
+import { IRoute } from "@constants/interface";
 import {
   AboutUs,
   EditPersonalInfor,
@@ -6,17 +6,17 @@ import {
   ImageDetail,
   Login,
   Register,
-} from '@pages';
+} from "@pages";
 
 const publicRoutes: IRoute[] = [
-  { path: '/', component: Home },
-  { path: '/image-detail/:id', component: ImageDetail },
-  { path: '/register', component: Register },
-  { path: '/login', component: Login },
-  { path: '/about-us', component: AboutUs },
+  { path: "/", component: Home },
+  { path: "/image-detail/:id", component: ImageDetail },
+  { path: "/register", component: Register },
+  { path: "/login", component: Login },
+  { path: "/about-us", component: AboutUs },
 ];
 const privateRoutes: IRoute[] = [
-  { path: '/edit-information', component: EditPersonalInfor },
+  { path: "/edit-information", component: EditPersonalInfor },
 ];
 
 export { publicRoutes, privateRoutes };
