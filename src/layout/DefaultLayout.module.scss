@@ -1,0 +1,15 @@
+.default-layout {
+  position: relative;
+  height: 100vh;
+
+  .background {
+    display: block;
+    position: absolute;
+    width: auto;
+    height: 100vh;
+
+    top: 0;
+    right: 0;
+    z-index: -1;
+  }
+}
