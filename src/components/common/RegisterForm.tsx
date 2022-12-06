@@ -72,7 +72,7 @@ const RegisterForm: React.FC<IRegister> = ({ title, onSubmit }) => {
           label="Confirm Password"
         />
       </FormControl>
-      <Button className={`${styles["submit-button"]}`}>
+      <Button className={`primary-button ${styles["submit-button"]}`}>
         {title === "Register" ? "Sign up" : "Update"}
       </Button>
     </form>
