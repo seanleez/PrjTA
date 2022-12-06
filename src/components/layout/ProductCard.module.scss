@@ -1,53 +1,77 @@
 @import "../../styles/mixin.scss";
 
 .card {
+  display: flex;
+  flex-direction: column;
   width: 23.5%;
   padding: 10px;
   margin-top: 20px;
   border-radius: 15px !important;
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.7rem 3rem rgba(gray, 0.3);
+  }
 
   img {
     border: 2px solid var(--primary);
     border-radius: 15px;
   }
 
+  .title {
+    margin-top: 10px;
+    min-height: 50px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .content {
     display: flex;
-    justify-content: space-evenly;
-    padding: 10px 0;
-    .infor {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      background-color: var(--primary);
-      width: 30%;
-      height: 30px;
-      border-radius: 15px;
-
-      &.price {
-        font-weight: bold;
-      }
-    }
-  }
-
-  .title {
-    margin: 10px 0;
-  }
-
-  .actions {
+    justify-content: space-between;
+    align-items: center;
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    width: 100%;
+    padding: 10px 0;
 
-    button {
-      display: block;
-      height: 35px;
-      width: 40%;
+    .price {
+      transform: skewY(-6deg);
+      color: #fff;
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.5;
+      width: 55%;
+      height: 40px;
+      border-radius: 0px;
+      background-color: var(--primary);
+      background-image: linear-gradient(
+        to right bottom,
+        var(--primary),
+        var(--secondary)
+      );
+    }
+
+    .infor-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      flex: 1;
+      gap: 5px;
+
+      .infor {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        background-color: var(--tertiary);
+        width: 60%;
+        height: 30px;
+        border-radius: 15px;
+      }
     }
   }
 }
@@ -66,5 +90,13 @@
 @include responsive(sm) {
   .card {
     width: 100%;
+    .price {
+      font-size: 20px !important;
+      line-height: 2 !important;
+    }
+
+    .infor {
+      width: 70% !important;
+    }
   }
 }

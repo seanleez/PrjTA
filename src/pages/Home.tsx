@@ -52,7 +52,8 @@ const LIST_PRODUCT_CARDS = [
     price: 2.99,
     sale: 999,
     like: 999,
-    title: "T-Shirt TumblerTumbler Tumbler Tumbler Tumbler Tumbler",
+    title:
+      "Túi Xách Nữ Đeo Chéo Đeo Vai Đi Làm Đi Chơi Thời Trang Hàng Hiệu LUMALO STORE TX39",
   },
   {
     imgSrc: CategoryCard1,

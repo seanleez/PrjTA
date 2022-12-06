@@ -83,8 +83,24 @@
 
 @include responsive(lg) {
   .products-container {
+    .title {
+      width: 60%;
+      font-size: 26px;
+      line-height: 2;
+    }
     .category-container {
       gap: 2%;
+    }
+  }
+}
+
+@include responsive(md) {
+  .products-container {
+    .title {
+      width: 80%;
+      font-size: 22px;
+      line-height: 2.2;
+      height: 45px;
     }
   }
 }
@@ -104,6 +120,14 @@
           padding: 0;
         }
       }
+    }
+  }
+  .products-container {
+    padding: 10px 15px;
+    .title {
+      width: 100%;
+      font-size: 18px;
+      line-height: 2.5;
     }
   }
 }
