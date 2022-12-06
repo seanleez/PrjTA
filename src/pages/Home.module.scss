@@ -1,0 +1,133 @@
+@import "../styles/mixin.scss";
+
+.feature-container {
+  background-color: var(--secondary);
+  padding: 20px;
+  .category-container {
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    padding: 10px 0;
+  }
+
+  .search-field-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+
+    div {
+      border-radius: 30px;
+    }
+    .search-field {
+      width: 60%;
+      margin: auto;
+      border-radius: 30px;
+      background-color: var(--white);
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.products-container {
+  background-color: var(--quaternary);
+  width: 90%;
+  padding: 10px 30px 30px;
+  margin: 35px auto;
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+
+  .title {
+    width: 50%;
+    height: 55px;
+    text-align: center;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 1.8;
+    border-radius: 15px;
+    margin: 20px auto;
+    background-color: var(--white);
+  }
+
+  .product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+  }
+}
+
+.see-more {
+  display: flex !important;
+  margin: auto !important;
+  height: 40px;
+  svg {
+    transform: scale(-1, 1);
+  }
+}
+
+@include responsive(xl) {
+  .feature-container {
+    padding: 20px 10px;
+  }
+  .products-container {
+    width: 95%;
+    .category-container {
+      gap: 2%;
+    }
+  }
+}
+
+@include responsive(lg) {
+  .products-container {
+    .title {
+      width: 60%;
+      font-size: 26px;
+      line-height: 2;
+    }
+    .category-container {
+      gap: 2%;
+    }
+  }
+}
+
+@include responsive(md) {
+  .products-container {
+    .title {
+      width: 80%;
+      font-size: 22px;
+      line-height: 2.2;
+      height: 45px;
+    }
+  }
+}
+
+@include responsive(sm) {
+  .feature-container {
+    padding: 10px;
+    .category-container {
+      flex-wrap: wrap;
+    }
+    .search-field-container {
+      .search-field {
+        width: 80% !important;
+        svg {
+          width: 24px;
+          height: 24px;
+          padding: 0;
+        }
+      }
+    }
+  }
+  .products-container {
+    padding: 10px 15px;
+    .title {
+      width: 100%;
+      font-size: 18px;
+      line-height: 2.5;
+    }
+  }
+}
