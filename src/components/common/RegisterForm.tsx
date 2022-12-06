@@ -1,80 +1,196 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Button,
-  FormControl,
   IconButton,
   InputAdornment,
-  InputLabel,
-  OutlinedInput,
   TextField,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./RegisterForm.module.scss";
+import UserIcon from "@assets/icons/user-icon.svg";
+import PhoneIcon from "@assets/icons/phone-icon.svg";
+import AddressIcon from "@assets/icons/address-icon.svg";
+import EmailIcon from "@assets/icons/email-icon.svg";
+import PasswordIcon from "@assets/icons/password-icon.svg";
+import { useFormik } from "formik";
+import { Link } from "react-router-dom";
+import * as yup from "yup";
 
-interface IRegister {
+interface IRegisterForm {
   title: "Register" | "Edit Information";
-  onSubmit?: () => void;
 }
 
-const RegisterForm: React.FC<IRegister> = ({ title, onSubmit }) => {
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+interface IValues {
+  userName: string;
+  phone: string;
+  address: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
 
-  const handleMouseDownPassword = (
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => {
-    event.preventDefault();
-  };
+const RegisterForm: React.FC<IRegisterForm> = ({ title }) => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const formik = useFormik({
+    initialValues: {
+      userName: "",
+      phone: "",
+      address: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+    validateOnBlur: false,
+    validationSchema: yup.object({
+      userName: yup.string().required("Required"),
+      phone: yup
+        .string()
+        .matches(/^\d+$/, "Phone has to be contained all numbers"),
+      email: yup.string().email("Invalid email address").required("Required"),
+      password: yup.string().required("Required"),
+      confirmPassword: yup
+        .string()
+        .required("Required")
+        .oneOf(
+          [yup.ref("password"), null],
+          "Confirm passwod must match password",
+        ),
+    }),
+    onSubmit: (values: IValues) => {
+      console.log(values);
+    },
+  });
 
   return (
-    <form onSubmit={onSubmit} className={`${styles["form-container"]}`}>
-      <Typography>{title}</Typography>
-      <TextField required name="name" label="User Name" />
-      <FormControl>
-        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-        <OutlinedInput
-          id="outlined-adornment-password"
-          type={showPassword ? "text" : "password"}
-          endAdornment={
+    <form
+      onSubmit={formik.handleSubmit}
+      className={`${styles["form-container"]}`}
+      noValidate
+      autoComplete="off"
+      spellCheck="false"
+    >
+      <Typography className={`${styles["title"]}`}>{title}</Typography>
+      <TextField
+        placeholder="User Name *"
+        name="userName"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <img src={UserIcon} alt={UserIcon} />
+            </InputAdornment>
+          ),
+        }}
+        helperText={formik.errors.userName}
+        value={formik.values.userName}
+        onChange={formik.handleChange}
+      />
+      <TextField
+        placeholder="Phone"
+        name="phone"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <img src={PhoneIcon} alt={PhoneIcon} />
+            </InputAdornment>
+          ),
+        }}
+        helperText={formik.errors.phone}
+        value={formik.values.phone}
+        onChange={formik.handleChange}
+      />
+      <TextField
+        placeholder="Address"
+        name="address"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <img src={AddressIcon} alt={AddressIcon} />
+            </InputAdornment>
+          ),
+        }}
+        value={formik.values.address}
+        onChange={formik.handleChange}
+      />
+      <TextField
+        placeholder="Email *"
+        name="email"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <img src={EmailIcon} alt={EmailIcon} />
+            </InputAdornment>
+          ),
+        }}
+        helperText={formik.errors.email}
+        value={formik.values.email}
+        onChange={formik.handleChange}
+      />
+
+      <TextField
+        type={showPassword ? "text" : "password"}
+        placeholder="Password *"
+        name="password"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <img src={PasswordIcon} alt={PasswordIcon} />
+            </InputAdornment>
+          ),
+          endAdornment: (
             <InputAdornment position="end">
               <IconButton
-                aria-label="toggle password visibility"
                 onClick={() => setShowPassword(!showPassword)}
-                onMouseDown={handleMouseDownPassword}
                 edge="end"
               >
                 {showPassword ? <VisibilityOff /> : <Visibility />}
               </IconButton>
             </InputAdornment>
-          }
-          label="Password"
-        />
-      </FormControl>
-      <FormControl>
-        <InputLabel htmlFor="outlined-adornment-confirm-password">
-          Confirm Password
-        </InputLabel>
-        <OutlinedInput
-          id="outlined-adornment-confirm-password"
-          type={showPassword ? "text" : "password"}
-          endAdornment={
+          ),
+        }}
+        helperText={formik.errors.password}
+        value={formik.values.password}
+        onChange={formik.handleChange}
+      />
+      <TextField
+        type={showPassword ? "text" : "password"}
+        placeholder="Confirm Password *"
+        name="confirmPassword"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <img src={PasswordIcon} alt={PasswordIcon} />
+            </InputAdornment>
+          ),
+          endAdornment: (
             <InputAdornment position="end">
               <IconButton
-                aria-label="toggle password visibility"
                 onClick={() => setShowPassword(!showPassword)}
-                onMouseDown={handleMouseDownPassword}
                 edge="end"
               >
                 {showPassword ? <VisibilityOff /> : <Visibility />}
               </IconButton>
             </InputAdornment>
-          }
-          label="Confirm Password"
-        />
-      </FormControl>
-      <Button className={`primary-button ${styles["submit-button"]}`}>
+          ),
+        }}
+        helperText={formik.errors.confirmPassword}
+        value={formik.values.confirmPassword}
+        onChange={formik.handleChange}
+      />
+
+      <Button
+        className={`primary-button ${styles["submit-button"]}`}
+        type="submit"
+      >
         {title === "Register" ? "Sign up" : "Update"}
       </Button>
+
+      <Typography className={`${styles["link"]}`}>
+        Already have an account?{" "}
+        <Link to={"/login"}>
+          <b>Sign In</b>
+        </Link>
+      </Typography>
     </form>
   );
 };

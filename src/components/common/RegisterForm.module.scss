@@ -1,17 +1,35 @@
 .form-container {
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   gap: 15px;
   text-align: center;
+  color: var(--primary) !important;
 
-  label,
+  .title {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--primary) !important;
+  }
+
   input {
     color: var(--primary) !important;
+    padding: 0.75rem;
   }
 
   svg {
     fill: var(--primary);
+  }
+
+  fieldset {
+    border-color: var(--primary) !important;
+    border-radius: 10px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 600;
+    color: red;
   }
 
   .submit-button {
@@ -19,8 +37,20 @@
     background-color: var(--primary);
     border-radius: 10px;
     height: 45px;
+    font-size: 16px;
+    font-weight: bold;
+
     &:hover {
       background-color: var(--primary);
+    }
+  }
+
+  .link {
+    margin-top: 30px;
+    color: var(--primary) !important;
+    a {
+      text-decoration: none;
+      color: var(--primary);
     }
   }
 }

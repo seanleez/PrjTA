@@ -1,12 +1,11 @@
 @import "./variable.scss";
 @import "./mixin.scss";
 
-// CSS pass down for entire projects
-:root {
-  font-family: Mulish, Avenir, Helvetica, Arial, sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;600;900&display=swap");
 
+// CSS pass down for entire projects
 * {
+  font-family: Mulish, Avenir, Helvetica, Arial, sans-serif !important;
   box-sizing: border-box;
 }
 
