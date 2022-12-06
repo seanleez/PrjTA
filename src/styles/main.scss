@@ -3,9 +3,19 @@
 
 // CSS pass down for entire projects
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Mulish, Avenir, Helvetica, Arial, sans-serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+button.primary-button {
+  border-radius: 20px;
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
+
+  &:hover {
+    background-color: var(--secondary) !important;
+  }
 }

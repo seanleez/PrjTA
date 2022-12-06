@@ -24,17 +24,3 @@
     }
   }
 }
-
-@mixin flex-center($x: center, $y: center) {
-  display: flex;
-  justify-content: $x;
-  align-items: $y;
-}
-@mixin flex-x($x: center) {
-  display: flex;
-  justify-content: $x;
-}
-@mixin flex-y($y: center) {
-  display: flex;
-  align-items: $y;
-}

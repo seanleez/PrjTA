@@ -1,0 +1,69 @@
+@import "../../styles/mixin.scss";
+
+.card-container {
+  width: 16%;
+  text-align: center;
+  border-radius: 20px !important;
+  background-color: var(--tertiary) !important;
+
+  &.active {
+    background-color: var(--white) !important;
+  }
+
+  & > button {
+    padding: 5px;
+    height: 100%;
+    border-radius: 20px !important;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: var(--primary);
+    width: 90%;
+    height: 50px;
+    margin: 10px auto;
+    border-radius: 20px;
+    border: 2px solid var(--white);
+    color: var(--white);
+
+    div {
+      font-weight: bold;
+      padding: 0;
+    }
+  }
+}
+
+@include responsive(xl) {
+  .card-container {
+    width: 18%;
+  }
+}
+@include responsive(md) {
+  .card-container {
+    width: 20%;
+
+    .title {
+      height: 35px;
+      border-radius: 15px;
+      div {
+        font-weight: normal;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@include responsive(sm) {
+  .card-container {
+    margin-bottom: 10px;
+    width: 32%;
+  }
+}
