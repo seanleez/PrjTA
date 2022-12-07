@@ -1,10 +1,12 @@
 .form-container {
-  width: 40%;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 450px;
   text-align: center;
   color: var(--primary) !important;
+  margin-left: 5%;
+  transform: translateY(calc(50vh - 50%));
 
   .title {
     font-size: 32px;
@@ -14,7 +16,7 @@
 
   input {
     color: var(--primary) !important;
-    padding: 0.75rem;
+    padding: 10px;
   }
 
   svg {
@@ -46,7 +48,7 @@
   }
 
   .link {
-    margin-top: 30px;
+    margin-top: 20px;
     color: var(--primary) !important;
     a {
       text-decoration: none;
