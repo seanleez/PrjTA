@@ -41,8 +41,8 @@ const RegisterForm: React.FC<IRegisterForm> = ({ title }) => {
       password: "",
       confirmPassword: "",
     },
-    validateOnBlur: false,
-    validationSchema: yup.object({
+    // validateOnBlur: true,
+    validationSchema: yup.object().shape({
       userName: yup.string().required("Required"),
       phone: yup
         .string()
@@ -81,7 +81,9 @@ const RegisterForm: React.FC<IRegisterForm> = ({ title }) => {
             </InputAdornment>
           ),
         }}
-        helperText={formik.errors.userName}
+        // helperText={formik.errors.userName}
+        error={formik.touched.userName && Boolean(formik.errors.userName)}
+        helperText={formik.touched.userName && formik.errors.userName}
         value={formik.values.userName}
         onChange={formik.handleChange}
       />
@@ -122,7 +124,8 @@ const RegisterForm: React.FC<IRegisterForm> = ({ title }) => {
             </InputAdornment>
           ),
         }}
-        helperText={formik.errors.email}
+        error={formik.touched.email && Boolean(formik.errors.email)}
+        helperText={formik.touched.email && formik.errors.email}
         value={formik.values.email}
         onChange={formik.handleChange}
       />
@@ -148,7 +151,8 @@ const RegisterForm: React.FC<IRegisterForm> = ({ title }) => {
             </InputAdornment>
           ),
         }}
-        helperText={formik.errors.password}
+        error={formik.touched.password && Boolean(formik.errors.password)}
+        helperText={formik.touched.password && formik.errors.password}
         value={formik.values.password}
         onChange={formik.handleChange}
       />
@@ -173,7 +177,8 @@ const RegisterForm: React.FC<IRegisterForm> = ({ title }) => {
             </InputAdornment>
           ),
         }}
-        helperText={formik.errors.confirmPassword}
+        error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
+        helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
         value={formik.values.confirmPassword}
         onChange={formik.handleChange}
       />
