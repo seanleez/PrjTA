@@ -1,18 +1,12 @@
 import { Footer, Header } from "./component";
-import styles from "./DefaultLayout.module.scss";
-import { Background } from "@assets/images";
 
-const DefaultLayout: React.FC<any> = ({ children }) => {
+const DefaultLayout: React.FC<any> = ({ layout, children }) => {
+  console.log(layout);
   return (
-    <div className={`${styles["default-layout"]}`}>
+    <div>
       <Header />
-      <>{children}</>
+      {children}
       <Footer />
-      <img
-        src={Background}
-        alt={Background}
-        className={`${styles["background"]}`}
-      />
     </div>
   );
 };
