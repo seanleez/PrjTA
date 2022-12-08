@@ -1,5 +1,7 @@
+import { LoginForm } from "@components/layout";
+
 const Login: React.FC = () => {
-  return <h1>Login Page</h1>;
+  return <LoginForm />;
 };
 
 export default Login;

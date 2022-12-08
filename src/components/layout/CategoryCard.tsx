@@ -1,12 +1,11 @@
-import styles from "./CategoryCard.module.scss";
 import {
   Card,
   CardActionArea,
-  CardMedia,
   CardContent,
-  Typography,
+  CardMedia,
   Paper,
 } from "@mui/material";
+import styles from "./CategoryCard.module.scss";
 
 interface ICategoryCard {
   imgSrc: string;
@@ -32,7 +31,7 @@ const CategoryCard: React.FC<ICategoryCard> = ({
         <CardMedia component="img" image={imgSrc} alt={imgSrc} />
         <Paper elevation={5} className={`${styles["title"]}`}>
           <CardContent>
-            <Typography component={"div"}>{title}</Typography>
+            <div>{title}</div>
           </CardContent>
         </Paper>
       </CardActionArea>

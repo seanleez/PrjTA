@@ -6,18 +6,12 @@ import {
   CategoryCard5,
 } from "@assets/images";
 import { CategoryCard } from "@components/layout";
-import {
-  Box,
-  Button,
-  InputAdornment,
-  TextField,
-  Typography,
-} from "@mui/material";
-import React, { useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import styles from "./Home.module.scss";
 import ProductCard from "@components/layout/ProductCard";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import SearchIcon from "@mui/icons-material/Search";
+import { Box, Button, InputAdornment, TextField } from "@mui/material";
+import React, { useState } from "react";
+import styles from "./Home.module.scss";
 interface ICategory {
   imgSrc: string;
   title: string;
@@ -140,9 +134,7 @@ const Home: React.FC = () => {
         </Box>
       </Box>
       <Box className={`${styles["products-container"]}`}>
-        <Typography component={"div"} className={`${styles["title"]}`}>
-          PRODUCTS OF INTEREST
-        </Typography>
+        <div className={`${styles["title"]}`}>PRODUCTS OF INTEREST</div>
         <Box className={`${styles["product-cards"]}`}>
           {LIST_PRODUCT_CARDS.map((card: any, i: number) => (
             <ProductCard
@@ -157,9 +149,7 @@ const Home: React.FC = () => {
         </Box>
       </Box>
       <Box className={`${styles["products-container"]}`}>
-        <Typography component={"div"} className={`${styles["title"]}`}>
-          PRODUCTS ON SALE
-        </Typography>
+        <div className={`${styles["title"]}`}>PRODUCTS ON SALE</div>
         <Box className={`${styles["product-cards"]}`}>
           {LIST_PRODUCT_CARDS.map((card: any, i: number) => (
             <ProductCard
@@ -174,9 +164,7 @@ const Home: React.FC = () => {
         </Box>
       </Box>
       <Box className={`${styles["products-container"]}`}>
-        <Typography component={"div"} className={`${styles["title"]}`}>
-          NEW PRODUCT
-        </Typography>
+        <div className={`${styles["title"]}`}>NEW PRODUCT</div>
         <Box className={`${styles["product-cards"]}`}>
           {LIST_PRODUCT_CARDS.map((card: any, i: number) => (
             <ProductCard

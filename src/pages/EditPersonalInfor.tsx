@@ -1,5 +1,11 @@
+import { RegisterForm } from "@components/common";
+
 const EditPersonalInfor: React.FC = () => {
-  return <h1>EditPersonalInfor Page</h1>;
+  return (
+    <>
+      <RegisterForm title="Edit Information" />
+    </>
+  );
 };
 
 export default EditPersonalInfor;

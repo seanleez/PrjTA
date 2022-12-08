@@ -1,3 +1,8 @@
+import AddressIcon from "@assets/icons/address-icon.svg";
+import EmailIcon from "@assets/icons/email-icon.svg";
+import PasswordIcon from "@assets/icons/password-icon.svg";
+import PhoneIcon from "@assets/icons/phone-icon.svg";
+import UserIcon from "@assets/icons/user-icon.svg";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Button,
@@ -6,16 +11,11 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
-import styles from "./RegisterForm.module.scss";
-import UserIcon from "@assets/icons/user-icon.svg";
-import PhoneIcon from "@assets/icons/phone-icon.svg";
-import AddressIcon from "@assets/icons/address-icon.svg";
-import EmailIcon from "@assets/icons/email-icon.svg";
-import PasswordIcon from "@assets/icons/password-icon.svg";
 import { useFormik } from "formik";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
+import styles from "./RegisterForm.module.scss";
 
 interface IRegisterForm {
   title: "Register" | "Edit Information";
@@ -187,9 +187,9 @@ const RegisterForm: React.FC<IRegisterForm> = ({ title }) => {
       </Button>
 
       <Typography className={`${styles["link"]}`}>
-        Already have an account?{" "}
+        Already have an account?
         <Link to={"/login"}>
-          <b>Sign In</b>
+          <b> Sign In</b>
         </Link>
       </Typography>
     </form>
