@@ -1,0 +1,15 @@
+.form-layout {
+  position: relative;
+  min-height: 100vh;
+
+  .background {
+    display: block;
+    position: absolute;
+    width: auto;
+    height: 100%;
+
+    top: 0;
+    right: 0;
+    z-index: -1;
+  }
+}

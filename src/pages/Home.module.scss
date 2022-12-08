@@ -1,7 +1,11 @@
 @import "../styles/mixin.scss";
 
 .feature-container {
-  background-color: var(--secondary);
+  background-image: linear-gradient(
+    to bottom,
+    var(--secondary),
+    var(--primary)
+  );
   padding: 20px;
   .category-container {
     display: flex;

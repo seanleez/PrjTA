@@ -1,0 +1,19 @@
+.footer {
+  padding: 10px;
+  img {
+    height: 40px;
+    width: auto;
+  }
+}
+
+.form-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.normal-footer {
+  margin-top: 30px;
+  text-align: right;
+  background-color: var(--primary);
+}
