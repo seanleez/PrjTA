@@ -1,12 +1,14 @@
 import { publicRoutes } from "@routes";
 import { Route, Routes } from "react-router-dom";
 import { IRoute } from "./constants/interface";
+import { ScrollToTop } from "./hooks";
 import { DefaultLayout, FormLayout } from "./layout";
 import { InvalidPage } from "./pages";
 
 function App() {
   return (
     <div className="App">
+      <ScrollToTop />
       <Routes>
         {publicRoutes.map((route: IRoute, index: number) => {
           const Page = route.component;

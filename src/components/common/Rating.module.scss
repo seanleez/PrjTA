@@ -1,0 +1,20 @@
+.rating {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid var(--primary);
+  border-radius: 25px;
+  height: 25px;
+  width: 100px;
+
+  img {
+    height: 100%;
+    width: auto;
+    padding: 0 2px;
+
+    &.inactive {
+      filter: invert(13%) sepia(5%) saturate(11%) hue-rotate(324deg)
+        brightness(103%) contrast(83%);
+    }
+  }
+}

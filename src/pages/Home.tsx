@@ -77,20 +77,6 @@ const LIST_PRODUCT_CARDS = [
     like: 999,
     title: "T-Shirt",
   },
-  {
-    imgSrc: CategoryCard1,
-    price: 2.99,
-    sale: 999,
-    like: 999,
-    title: "T-Shirt",
-  },
-  {
-    imgSrc: CategoryCard1,
-    price: 2.99,
-    sale: 999,
-    like: 999,
-    title: "T-Shirt",
-  },
 ];
 
 const Home: React.FC = () => {
