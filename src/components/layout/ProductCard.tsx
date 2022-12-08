@@ -1,6 +1,6 @@
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Box, Card, CardContent, CardMedia } from "@mui/material";
 import styles from "./ProductCard.module.scss";
 
 interface IProductCard {
@@ -21,22 +21,18 @@ const ProductCard: React.FC<IProductCard> = ({
   return (
     <Card className={`${styles["card"]}`}>
       <CardMedia component="img" image={imgSrc} alt={imgSrc} />
-      <Typography component={"div"} className={`${styles["title"]}`}>
-        {title}
-      </Typography>
+      <div className={`${styles["title"]}`}>{title}</div>
       <CardContent className={`${styles["content"]}`}>
-        <Typography component={"div"} className={`${styles["price"]}`}>
-          ${price}
-        </Typography>
+        <div className={`${styles["price"]}`}>${price}</div>
         <Box className={`${styles["infor-container"]}`}>
-          <Typography component={"div"} className={`${styles["infor"]}`}>
+          <div className={`${styles["infor"]}`}>
             <ShoppingCartIcon />
             {sale}
-          </Typography>
-          <Typography component={"div"} className={`${styles["infor"]}`}>
+          </div>
+          <div className={`${styles["infor"]}`}>
             <FavoriteBorderIcon />
             {like}
-          </Typography>
+          </div>
         </Box>
       </CardContent>
     </Card>
