@@ -1,0 +1,29 @@
+.description {
+  flex: 1;
+  background-color: var(--quaternary);
+  border-radius: 20px;
+
+  .title {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .rating {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid var(--primary);
+    border-radius: 25px;
+
+    img {
+      padding: 0 2px;
+    }
+  }
+
+  .sub-title {
+    font-weight: bold;
+  }
+
+  p {
+    padding: 0 10px;
+  }
+}
