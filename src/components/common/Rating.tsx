@@ -21,7 +21,6 @@ const renderStarArray = (num: number, mode?: "inactive") => {
       />
     );
   });
-  console.log(starArray);
   return <>{starArray}</>;
 };
 

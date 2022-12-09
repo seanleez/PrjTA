@@ -1,4 +1,4 @@
-import StarIcon from "@assets/icons/star-icon.svg";
+import { Rating } from "@components/common";
 import styles from "./DescriptionSection.module.scss";
 
 const ImageDetail: React.FC = () => {
@@ -8,14 +8,7 @@ const ImageDetail: React.FC = () => {
         Merry and Bright SVG PNG Digital Download File Merry and Bright SVG PNG
         Digital Download File
       </p>
-      <div className={`${styles["rating"]}`}>
-        <img src={StarIcon} alt={StarIcon} />
-        <img src={StarIcon} alt={StarIcon} />
-        <img src={StarIcon} alt={StarIcon} />
-        <img src={StarIcon} alt={StarIcon} />
-        <img src={StarIcon} alt={StarIcon} />
-      </div>
-
+      <Rating ratingStar={5} size="large" />
       <p className={`${styles["sub-title"]}`}>What you will get</p>
       <p>&bull; You will receive a PNG format file.</p>
       <p>&bull; Image resolution 300pdi.</p>

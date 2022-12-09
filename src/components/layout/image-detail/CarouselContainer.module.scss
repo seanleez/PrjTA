@@ -1,3 +1,42 @@
-.carousel {
-  width: 55%;
+.container {
+  width: 58%;
+  padding-bottom: 20px;
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    button {
+      width: 250px;
+      height: 50px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .price-tag {
+      background-color: var(--primary);
+      border-radius: 20px;
+      width: 250px;
+      height: 50px;
+
+      display: flex;
+      justify-content: space-evenly;
+      p {
+        margin: 0;
+        line-height: 2;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--white);
+        &:nth-child(2) {
+          text-decoration: line-through;
+          text-decoration-color: black;
+        }
+      }
+    }
+  }
+}
+
+.abc {
+  background-color: red !important;
 }
