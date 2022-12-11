@@ -16,6 +16,7 @@ const publicRoutes: IRoute[] = [
   { path: "/login", component: Login, layout: "form" },
   { path: "/about-us", component: AboutUs, layout: "form" },
   { path: "/cart", component: Cart },
+  { path: "/edit-information", component: EditPersonalInfor, layout: "form" },
 ];
 const privateRoutes: IRoute[] = [
   { path: "/edit-information", component: EditPersonalInfor, layout: "form" },

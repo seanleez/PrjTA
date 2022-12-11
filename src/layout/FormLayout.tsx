@@ -1,7 +1,6 @@
 import { Footer, Header } from "./component";
 import styles from "./FormLayout.module.scss";
-import { Background } from "@assets/images";
-import { BareBackground } from "@assets/images";
+import { Background, BareBackground } from "@assets/images";
 import { useLocation } from "react-router-dom";
 
 const FormLayout: React.FC<any> = ({ layout, children }) => {

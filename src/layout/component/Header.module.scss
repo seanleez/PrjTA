@@ -40,7 +40,7 @@
     }
   }
 
-  .header-actions {
+  .header-features {
     min-width: 25%;
     text-align: right;
     display: flex;
@@ -49,15 +49,18 @@
     gap: 5px;
     svg {
       fill: var(--white);
-      height: 40px;
-      width: 40px;
+      height: 35px;
+      width: 35px;
     }
+  }
 
+  .header-actions {
     button {
       background-color: var(--white);
       color: var(--primary);
       font-weight: bold;
       border-radius: 15px;
+      margin-left: 10px;
     }
   }
 

@@ -5,10 +5,8 @@ import {
   CategoryCard4,
   CategoryCard5,
 } from "@assets/images";
-import { CategoryCard } from "@components/layout";
-import ProductCard from "@components/layout/ProductCard";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import SearchIcon from "@mui/icons-material/Search";
+import { CategoryCard, ProductCard } from "@components/layout";
+import { KeyboardBackspace, Search } from "@mui/icons-material";
 import { Box, Button, InputAdornment, TextField } from "@mui/material";
 import React, { useState } from "react";
 import styles from "./Home.module.scss";
@@ -111,7 +109,7 @@ const Home: React.FC = () => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start" sx={{ px: 1 }}>
-                  <SearchIcon />
+                  <Search />
                 </InputAdornment>
               ),
             }}
@@ -165,7 +163,7 @@ const Home: React.FC = () => {
         </Box>
       </Box>
       <Button className={`primary-button ${styles["see-more"]}`}>
-        See More <KeyboardBackspaceIcon />
+        See More <KeyboardBackspace />
       </Button>
     </>
   );
