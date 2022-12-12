@@ -5,3 +5,5 @@ export { default as CategoryCard4 } from "./card-category04.png";
 export { default as CategoryCard5 } from "./card-category05.png";
 export { default as Background } from "./background.png";
 export { default as BareBackground } from "./bare-background.png";
+export { default as BackgroundMobile } from "./background-mobile.png";
+export { default as BareBackgroundMobile } from "./bare-background-mobile.png";

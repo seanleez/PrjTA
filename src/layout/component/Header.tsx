@@ -1,124 +1,90 @@
+import Logo from "@assets/images/logo.png";
+import { HeaderFeatures } from "@components/layout/header";
+import ActionsMenu from "@components/layout/header/ActionMenu";
+import HeaderDropdown from "@components/layout/header/HeaderDropdown";
+import { Dehaze } from "@mui/icons-material";
+import { Box, Button, Divider, IconButton } from "@mui/material";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Header.module.scss";
-import LogoWithText from "@assets/images/logo-with-text.png";
-import {
-  Avatar,
-  Box,
-  Button,
-  IconButton,
-  Menu,
-  MenuItem,
-  Tooltip,
-  Typography,
-} from "@mui/material";
-import { ShoppingCart } from "@mui/icons-material";
-import { useState } from "react";
 interface IHeader {
   layout?: string;
 }
 
+export interface IItem {
+  path: string;
+  label: string;
+}
+
 const IS_LOGIN = false;
 
-const settings = ["Edit Information", "Log out"];
+const NAVIGATION_LIST: IItem[] = [
+  {
+    path: "/",
+    label: "Home",
+  },
+  {
+    path: "/about-us",
+    label: "About Us",
+  },
+];
 
 const Header: React.FC<IHeader> = ({ layout }) => {
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const [openDropdown, setOpenDropdown] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = (setting: string) => {
-    console.log(setting);
-    setAnchorElUser(null);
-    if (typeof setting === "string") {
-      if (setting === "Edit Information") {
-        navigate("/edit-information");
-      } else {
-        localStorage.clear();
-      }
-    }
-  };
-
   return (
-    <div
-      className={`${styles["header"]} ${
-        layout ? styles["form-header"] : styles["normal-header"]
-      }`}
-    >
-      <ul>
-        <li>
-          <Link to={"/"}>Home</Link>
-        </li>
-        <li>
-          <Link to={"/about-us"}>About Us</Link>
-        </li>
-      </ul>
-      <div>
-        <Link to={"/"}>
-          <img src={LogoWithText} alt={LogoWithText} />
-        </Link>
-      </div>
+    <>
+      <div
+        className={`${styles["header"]} ${
+          layout ? styles["form-header"] : styles["normal-header"]
+        }`}
+      >
+        <ul>
+          {NAVIGATION_LIST.map((item: IItem) => (
+            <li key={item.path}>
+              <Link to={item.path}>{item.label}</Link>
+            </li>
+          ))}
+        </ul>
+        <div className={`${styles["navigation-container"]}`}>
+          <IconButton onClick={() => setOpenDropdown(true)}>
+            <Dehaze />
+          </IconButton>
 
-      {IS_LOGIN ? (
-        <div className={`${styles["header-features"]}`}>
-          <Tooltip title="Cart">
-            <IconButton
-              size="small"
-              sx={{ p: 0 }}
-              onClick={() => navigate("/cart")}
-            >
-              <ShoppingCart />
-            </IconButton>
-          </Tooltip>
-          <Box>
-            <Tooltip title="Open settings">
-              <IconButton
-                size="small"
-                onClick={handleOpenUserMenu}
-                sx={{ p: 0 }}
-              >
-                <Avatar alt="Dong Le" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem
-                  key={setting}
-                  onClick={() => handleCloseUserMenu(setting)}
-                >
-                  <Typography>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          <HeaderDropdown
+            open={openDropdown}
+            list={NAVIGATION_LIST}
+            onClose={() => setOpenDropdown(false)}
+          />
+
+          <Link to={"/"}>
+            <img src={Logo} alt={Logo} />
+          </Link>
         </div>
-      ) : (
-        <div className={`${styles["header-actions"]}`}>
-          <Button variant="contained" onClick={() => navigate("/register")}>
-            Sign Up
-          </Button>
-          <Button variant="contained" onClick={() => navigate("/login")}>
-            Login
-          </Button>
-        </div>
-      )}
-    </div>
+        {IS_LOGIN ? (
+          <div className={`${styles["header-features"]}`}>
+            <HeaderFeatures />
+          </div>
+        ) : (
+          <div className={`${styles["actions"]}`}>
+            <div className={`${styles["action-buttons"]}`}>
+              <Button variant="contained" onClick={() => navigate("/register")}>
+                Sign Up
+              </Button>
+              <Button variant="contained" onClick={() => navigate("/login")}>
+                Login
+              </Button>
+            </div>
+
+            <Box className={`${styles["action-icon"]}`}>
+              <ActionsMenu />
+            </Box>
+          </div>
+        )}
+      </div>
+      <Divider style={layout ? { display: "none" } : {}} />
+    </>
   );
 };
 
