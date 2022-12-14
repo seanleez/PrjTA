@@ -12,6 +12,7 @@ $header-height: 60px;
 }
 
 body {
+  min-width: 345px;
   margin: 0;
 }
 
@@ -43,9 +44,21 @@ p {
     .MuiPaper-root {
       position: absolute;
       top: $header-height;
-      width: 100%;
+      left: 0;
+      width: calc(100% - 15px);
       max-width: none;
       margin: 0;
+
+      ul {
+        padding-bottom: 0;
+        li {
+          cursor: pointer;
+          transition: all 0.3s ease;
+          &:hover {
+            background-color: var(--tertiary);
+          }
+        }
+      }
     }
   }
 }

@@ -20,8 +20,11 @@
   }
 
   .navigation-container {
-    text-align: center;
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     button {
       display: none;
       height: 40px;
@@ -29,11 +32,11 @@
       margin-right: 5px;
     }
     a {
-      line-height: 1;
-    }
-    img {
-      height: 30px;
-      width: auto;
+      img {
+        height: 30px;
+        width: auto;
+        vertical-align: middle;
+      }
     }
   }
 
@@ -125,6 +128,7 @@
     .navigation-container {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
       button {
         display: block;
       }
@@ -144,6 +148,13 @@
 @include responsive(md) {
   .header {
     padding: 10px;
+    .navigation-container {
+      a {
+        img {
+          height: 25px;
+        }
+      }
+    }
     .actions {
       .action-buttons {
         display: none;
@@ -159,9 +170,10 @@
 @include responsive(sm) {
   .header {
     .navigation-container {
-      img {
-        height: 20px;
-        width: auto;
+      a {
+        img {
+          height: 20px;
+        }
       }
     }
   }
