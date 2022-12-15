@@ -31,10 +31,10 @@ const FormLayout: React.FC<any> = ({ layout, children }) => {
       <img
         src={
           pathname === "/about-us"
-            ? width < 1000
+            ? width < 1024
               ? BareBackgroundMobile
               : BareBackground
-            : width < 1000
+            : width < 1024
             ? BackgroundMobile
             : Background
         }

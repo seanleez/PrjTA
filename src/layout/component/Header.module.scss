@@ -5,42 +5,21 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  max-height: 70px;
+  height: 70px;
   z-index: 9999;
 
   button {
     background-color: var(--white);
-    color: var(--primary);
+    color: var(--black);
     padding: 5px;
 
     &:hover {
-      background-color: var(--white);
-      color: var(--primary);
+      background-color: var(--black);
+      color: var(--white);
     }
   }
 
-  .navigation-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    button {
-      display: none;
-      height: 40px;
-      width: 40px;
-      margin-right: 5px;
-    }
-    a {
-      img {
-        height: 30px;
-        width: auto;
-        vertical-align: middle;
-      }
-    }
-  }
-
-  ul {
+  ul.navigation-list {
     display: flex;
     gap: 15px;
     margin: 0;
@@ -51,15 +30,54 @@
     li {
       list-style-type: none;
       a {
+        color: var(--black);
+
         text-decoration: none;
         font-weight: 700;
         padding: 20px;
+        transition: all 0.3 ease;
       }
     }
   }
 
+  &.form-header {
+    ul.navigation-list > li > a {
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+
+  &.normal-header {
+    background-color: var(--secondary);
+
+    ul.navigation-list > li > a {
+      &:hover {
+        color: var(--white);
+      }
+    }
+  }
+
+  .navigation-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    button {
+      display: none;
+      height: 40px;
+      width: 40px;
+    }
+    img {
+      height: 30px;
+      width: auto;
+      vertical-align: middle;
+    }
+  }
+
   svg {
-    fill: var(--white);
     height: 30px !important;
     width: 30px !important;
   }
@@ -75,106 +93,36 @@
 
   .actions {
     width: 33%;
-    .action-buttons {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      button {
-        background-color: var(--white);
-        color: var(--black);
-        font-weight: bold;
-        border-radius: 15px;
-      }
-    }
-    .action-icon {
-      display: none;
-    }
-  }
-
-  &.form-header {
-    ul {
-      li {
-        a {
-          color: var(--black);
-        }
-      }
-    }
-  }
-
-  &.normal-header {
-    background-color: var(--secondary);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
     button {
-      background-color: var(--primary);
-      color: var(--white);
-      padding: 5px;
-
-      &:hover {
-        background-color: var(--white);
-        color: var(--primary);
-      }
-    }
-    ul {
-      li {
-        a {
-          color: var(--white);
-        }
-      }
+      font-weight: bold;
+      border-radius: 15px;
     }
   }
 }
 
 @include responsive(lg) {
   .header {
+    padding: 10px;
     .navigation-container {
       display: flex;
       align-items: center;
       justify-content: flex-start;
       button {
         display: block;
+        border: 1px solid var(--black);
       }
-    }
-    ul {
-      display: none;
+
+      img {
+        height: 25px;
+      }
     }
 
-    &.form-header {
-      svg {
-        fill: var(--primary);
-      }
-    }
-  }
-}
-
-@include responsive(md) {
-  .header {
-    padding: 10px;
-    .navigation-container {
-      a {
-        img {
-          height: 25px;
-        }
-      }
-    }
+    ul.navigation-list,
     .actions {
-      .action-buttons {
-        display: none;
-      }
-      .action-icon {
-        display: flex;
-        justify-content: flex-end;
-      }
-    }
-  }
-}
-
-@include responsive(sm) {
-  .header {
-    .navigation-container {
-      a {
-        img {
-          height: 20px;
-        }
-      }
+      display: none;
     }
   }
 }

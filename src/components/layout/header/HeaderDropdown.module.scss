@@ -1,0 +1,48 @@
+@import "../../../styles/mixin.scss";
+
+$header-height: 70px;
+$dropdown-height: 184px;
+
+.headerDropdown {
+  display: none;
+  position: absolute;
+  top: $header-height;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  border-top: 1px solid gray;
+  z-index: 999;
+
+  &.open {
+    display: block;
+  }
+  ul {
+    padding-bottom: 0;
+    li {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      span {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.backdrop {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: calc($header-height + $dropdown-height);
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  z-index: 999;
+
+  &.open {
+    display: block;
+  }
+}

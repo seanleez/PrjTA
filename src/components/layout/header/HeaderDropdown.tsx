@@ -1,7 +1,7 @@
-import { Dialog, List, ListItem, ListItemText } from "@mui/material";
+import { List, ListItem } from "@mui/material";
 import { IItem } from "layout/component/Header";
 import { useNavigate } from "react-router-dom";
-
+import styles from "./HeaderDropdown.module.scss";
 interface IHeaderDropdown {
   open: boolean;
   list: IItem[];
@@ -10,9 +10,6 @@ interface IHeaderDropdown {
 
 const HeaderDropdown: React.FC<IHeaderDropdown> = ({ open, list, onClose }) => {
   const navigate = useNavigate();
-  const handleClose = () => {
-    onClose();
-  };
 
   const handleClickItem = (path: string) => {
     navigate(path);
@@ -20,15 +17,25 @@ const HeaderDropdown: React.FC<IHeaderDropdown> = ({ open, list, onClose }) => {
   };
 
   return (
-    <Dialog className="header-dropdown" open={open} onClose={handleClose}>
-      <List sx={{ pt: 0 }}>
-        {list.map((item: IItem) => (
-          <ListItem key={item.path} onClick={() => handleClickItem(item.path)}>
-            <ListItemText primary={item.label} />
-          </ListItem>
-        ))}
-      </List>
-    </Dialog>
+    <>
+      <div className={`${styles.headerDropdown} ${open ? styles.open : ""}`}>
+        <List sx={{ pt: 0 }}>
+          {list.map((item: IItem) => (
+            <ListItem
+              key={item.path}
+              onClick={() => handleClickItem(item.path)}
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </ListItem>
+          ))}
+        </List>
+      </div>
+      <div
+        className={`${styles.backdrop} ${open ? styles.open : ""}`}
+        onClick={onClose}
+      />
+    </>
   );
 };
 
