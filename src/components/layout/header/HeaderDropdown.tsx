@@ -1,10 +1,10 @@
+import { INavigationItem } from "@constants/interface";
 import { List, ListItem } from "@mui/material";
-import { IItem } from "layout/component/Header";
 import { useNavigate } from "react-router-dom";
 import styles from "./HeaderDropdown.module.scss";
 interface IHeaderDropdown {
   open: boolean;
-  list: IItem[];
+  list: INavigationItem[];
   onClose: () => void;
 }
 
@@ -20,15 +20,17 @@ const HeaderDropdown: React.FC<IHeaderDropdown> = ({ open, list, onClose }) => {
     <>
       <div className={`${styles.headerDropdown} ${open ? styles.open : ""}`}>
         <List sx={{ pt: 0 }}>
-          {list.map((item: IItem) => (
-            <ListItem
-              key={item.path}
-              onClick={() => handleClickItem(item.path)}
-            >
-              {item.icon}
-              <span>{item.label}</span>
-            </ListItem>
-          ))}
+          {list
+            .filter((item: INavigationItem) => !item.isHidden)
+            .map((item: INavigationItem) => (
+              <ListItem
+                key={item.path}
+                onClick={() => handleClickItem(item.path)}
+              >
+                {item.icon}
+                <span>{item.label}</span>
+              </ListItem>
+            ))}
         </List>
       </div>
       <div

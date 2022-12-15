@@ -1,7 +1,8 @@
 import Logo from "@assets/images/logo.png";
-import { HeaderFeatures, HeaderDropdown } from "@components/layout/header";
+import { HeaderDropdown, HeaderFeatures } from "@components/layout/header";
+import { INavigationItem } from "@constants/interface";
 import {
-  AssignmentReturn,
+  AppRegistration,
   Dehaze,
   Home,
   Info,
@@ -15,15 +16,9 @@ interface IHeader {
   layout?: string;
 }
 
-export interface IItem {
-  path: string;
-  label: string;
-  icon: React.ReactNode;
-}
-
 const IS_LOGIN = true;
 
-const NAVIGATION_LIST: IItem[] = [
+const NAVIGATION_LIST: INavigationItem[] = [
   {
     path: "/",
     label: "Home",
@@ -37,12 +32,14 @@ const NAVIGATION_LIST: IItem[] = [
   {
     path: "/register",
     label: "Sign up",
-    icon: <AssignmentReturn />,
+    icon: <AppRegistration />,
+    isHidden: IS_LOGIN,
   },
   {
     path: "/login",
     label: "Login",
     icon: <Login />,
+    isHidden: IS_LOGIN,
   },
 ];
 
@@ -63,7 +60,7 @@ const Header: React.FC<IHeader> = ({ layout }) => {
         }`}
       >
         <ul className={`${styles["navigation-list"]}`}>
-          {NAVIGATION_LIST.slice(0, 2).map((item: IItem) => (
+          {NAVIGATION_LIST.slice(0, 2).map((item: INavigationItem) => (
             <li key={item.path}>
               <Link to={item.path}>{item.label}</Link>
             </li>
@@ -91,9 +88,7 @@ const Header: React.FC<IHeader> = ({ layout }) => {
         </div>
 
         {IS_LOGIN ? (
-          <div className={`${styles["header-features"]}`}>
-            <HeaderFeatures />
-          </div>
+          <HeaderFeatures />
         ) : (
           <div className={`${styles["actions"]}`}>
             <Button variant="contained" onClick={() => navigate("/register")}>

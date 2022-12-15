@@ -7,3 +7,10 @@ export interface IRoute {
 }
 
 export type TDialog = "error" | "warning" | "success";
+
+export interface INavigationItem {
+  path: string;
+  label: string;
+  icon: React.ReactNode;
+  isHidden?: boolean;
+}
