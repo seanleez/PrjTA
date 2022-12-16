@@ -2,8 +2,8 @@ import styles from "./AboutUs.module.scss";
 
 const AboutUs: React.FC = () => {
   return (
-    <div className={`${styles["container"]}`}>
-      <div className={`${styles["center-content"]}`}>
+    <div className={`${styles.container}`}>
+      <div className={`${styles.centerContent}`}>
         <p>Why should you purchase from us?</p>
         <p>
           The benefit of purchasing from us is that you will save both time and
@@ -12,29 +12,27 @@ const AboutUs: React.FC = () => {
           All you have to do is look for the product in the search or
           suggestions section and purchase it to help you with your work.
         </p>
-        <p className={`${styles["left-align"]}`}>
+        <p className={`${styles.leftAlign}`}>
           - Customers may purchase at any moment using the easy and completely
           secure payment method.
         </p>
-        <p className={`${styles["left-align"]}`}>
+        <p className={`${styles.leftAlign}`}>
           - The policy to protect our customers' interests has been strictly
           enforced:
         </p>
-        <p className={`${styles["left-align"]}`}>
+        <p className={`${styles.leftAlign}`}>
           &bull; The customer will receive the item exactly as described.
         </p>
-        <p className={`${styles["left-align"]}`}>
+        <p className={`${styles.leftAlign}`}>
           &bull; Complete user information confidentiality.
         </p>
-        <p className={`${styles["left-align"]}`}>
+        <p className={`${styles.leftAlign}`}>
           &bull; Quickly address issues that arise throughout the purchase or
           compensation processes until both parties reach an agreement.
         </p>
       </div>
-      <div className={`${styles["side-container"]}`}>
-        <div
-          className={`${styles["center-content"]} ${styles["white-border"]}`}
-        >
+      <div className={`${styles.sideContainer}`}>
+        <div className={`${styles.centerContent} ${styles.whiteBorder}`}>
           <p>Welcome to Freelance Design BT !</p>
           <p>
             Freelance Design BT is a team that works in the field of
@@ -48,8 +46,8 @@ const AboutUs: React.FC = () => {
             future design direction.
           </p>
         </div>
-        <div className={`${styles["sub-container"]}`}>
-          <div className={`${styles["center-content"]}`}>
+        <div className={`${styles.subContainer}`}>
+          <div className={`${styles.centerContent}`}>
             <p>Product development</p>
             <p>
               We wouldn't limit ourselves to the fixed products we offer; in the
@@ -66,18 +64,16 @@ const AboutUs: React.FC = () => {
               preferences, and we have everything you need.
             </p>
           </div>
-          <div
-            className={`${styles["center-content"]} ${styles["white-border"]}`}
-          >
+          <div className={`${styles.centerContent} ${styles.whiteBorder}`}>
             <p>Product quality commitment</p>
             <p>We base our products on the following criteria:</p>
-            <p className={`${styles["left-align"]}`}>
+            <p className={`${styles.leftAlign}`}>
               &bull; No images of poor quality.
             </p>
-            <p className={`${styles["left-align"]}`}>
+            <p className={`${styles.leftAlign}`}>
               &bull; No plagiarizing other store's images.
             </p>
-            <p className={`${styles["left-align"]}`}>
+            <p className={`${styles.leftAlign}`}>
               &bull; No images that violate societal norms.
             </p>
           </div>

@@ -1,14 +1,18 @@
-import { CarouselContainer } from "@components/layout/image-detail";
-import { DescriptionSection } from "@components/layout/image-detail";
-import { ReviewSection } from "@components/layout/image-detail";
+import {
+  CarouselContainer,
+  DescriptionSection,
+  FeatureSection,
+  ReviewSection,
+} from "@components/layout/image-detail";
 import styles from "./ImageDetail.module.scss";
 const ImageDetail: React.FC = () => {
   return (
-    <div className={`${styles["container"]}`}>
-      <div className={`${styles["image-section"]}`}>
+    <div className={`${styles.container}`}>
+      <div className={`${styles.imageSection}`}>
         <CarouselContainer />
-        <DescriptionSection />
+        <FeatureSection />
       </div>
+      <DescriptionSection />
       <ReviewSection />
     </div>
   );

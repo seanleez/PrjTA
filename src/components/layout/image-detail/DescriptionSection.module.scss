@@ -1,4 +1,5 @@
 .description {
+  margin-top: 20px;
   flex: 1;
   background-color: var(--quaternary);
   border-radius: 20px;
@@ -6,14 +7,5 @@
 
   .title {
     font-weight: bold;
-    font-size: 22px;
-  }
-
-  .sub-title {
-    font-weight: bold;
-  }
-
-  p {
-    padding: 0 10px;
   }
 }

@@ -42,40 +42,37 @@ const LIST_PRODUCT_CARDS = [
   {
     imgSrc: CategoryCard1,
     price: 2.99,
-    sale: 999,
-    like: 999,
+    sale: "2k8",
     title:
       "Túi Xách Nữ Đeo Chéo Đeo Vai Đi Làm Đi Chơi Thời Trang Hàng Hiệu LUMALO STORE TX39",
   },
   {
     imgSrc: CategoryCard1,
     price: 2.99,
-    sale: 999,
-    like: 999,
+    sale: 9,
     title: "T-Shirt",
   },
   {
     imgSrc: CategoryCard1,
     price: 2.99,
     sale: 999,
-    like: 999,
+    title: "T-Shirt",
+  },
+  {
+    imgSrc: CategoryCard1,
+    price: 2.99,
+    sale: "1k",
     title: "T-Shirt",
   },
   {
     imgSrc: CategoryCard1,
     price: 2.99,
     sale: 999,
-    like: 999,
-    title: "T-Shirt",
-  },
-  {
-    imgSrc: CategoryCard1,
-    price: 2.99,
-    sale: 999,
-    like: 999,
     title: "T-Shirt",
   },
 ];
+
+const SECTION_LIST = ["Product of interest", "Product on sale", "New Product"];
 
 const Home: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
@@ -89,8 +86,8 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Box className={`${styles["feature-container"]}`}>
-        <Box className={`${styles["category-container"]}`}>
+      <Box className={`${styles.featureContainer}`}>
+        <Box className={`${styles.categoryContainer}`}>
           {LIST_CATEGORY_CARDS.map((card: ICategory, i: number) => (
             <CategoryCard
               key={i}
@@ -103,7 +100,7 @@ const Home: React.FC = () => {
             />
           ))}
         </Box>
-        <Box className={`${styles["search-field-container"]}`}>
+        <Box className={`${styles.searchFieldContainer}`}>
           <TextField
             placeholder="Find the image you need"
             InputProps={{
@@ -113,55 +110,27 @@ const Home: React.FC = () => {
                 </InputAdornment>
               ),
             }}
-            className={`${styles["search-field"]}`}
+            className={`${styles.searchField}`}
           />
         </Box>
       </Box>
-      <Box className={`${styles["products-container"]}`}>
-        <div className={`${styles["title"]}`}>PRODUCTS OF INTEREST</div>
-        <Box className={`${styles["product-cards"]}`}>
-          {LIST_PRODUCT_CARDS.map((card: any, i: number) => (
-            <ProductCard
-              key={i}
-              imgSrc={card.imgSrc}
-              price={card.price}
-              sale={card.sale}
-              like={card.like}
-              title={card.title}
-            />
-          ))}
+      {SECTION_LIST.map((section: string) => (
+        <Box className={`${styles.productsContainer}`}>
+          <div className={`${styles.title}`}>{section}</div>
+          <Box className={`${styles.productCards}`}>
+            {LIST_PRODUCT_CARDS.map((card: any, i: number) => (
+              <ProductCard
+                key={i}
+                imgSrc={card.imgSrc}
+                price={card.price}
+                sale={card.sale}
+                title={card.title}
+              />
+            ))}
+          </Box>
         </Box>
-      </Box>
-      <Box className={`${styles["products-container"]}`}>
-        <div className={`${styles["title"]}`}>PRODUCTS ON SALE</div>
-        <Box className={`${styles["product-cards"]}`}>
-          {LIST_PRODUCT_CARDS.map((card: any, i: number) => (
-            <ProductCard
-              key={i}
-              imgSrc={card.imgSrc}
-              price={card.price}
-              sale={card.sale}
-              like={card.like}
-              title={card.title}
-            />
-          ))}
-        </Box>
-      </Box>
-      <Box className={`${styles["products-container"]}`}>
-        <div className={`${styles["title"]}`}>NEW PRODUCT</div>
-        <Box className={`${styles["product-cards"]}`}>
-          {LIST_PRODUCT_CARDS.map((card: any, i: number) => (
-            <ProductCard
-              key={i}
-              imgSrc={card.imgSrc}
-              price={card.price}
-              sale={card.sale}
-              like={card.like}
-              title={card.title}
-            />
-          ))}
-        </Box>
-      </Box>
+      ))}
+
       <Button className={`primary-button ${styles["see-more"]}`}>
         See More <KeyboardBackspace />
       </Button>

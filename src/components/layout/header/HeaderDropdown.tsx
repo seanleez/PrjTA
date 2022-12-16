@@ -12,8 +12,8 @@ const HeaderDropdown: React.FC<IHeaderDropdown> = ({ open, list, onClose }) => {
   const navigate = useNavigate();
 
   const handleClickItem = (path: string) => {
-    navigate(path);
     onClose();
+    navigate(path);
   };
 
   return (

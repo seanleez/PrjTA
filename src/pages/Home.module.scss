@@ -1,20 +1,20 @@
 @import "../styles/mixin.scss";
 
-.feature-container {
+.featureContainer {
   background-image: linear-gradient(
     to bottom,
     var(--secondary),
     var(--primary)
   );
   padding: 20px;
-  .category-container {
+  .categoryContainer {
     display: flex;
     justify-content: center;
     gap: 1%;
     padding: 10px 0;
   }
 
-  .search-field-container {
+  .searchFieldContainer {
     display: flex;
     justify-content: center;
     padding-top: 10px;
@@ -22,7 +22,7 @@
     div {
       border-radius: 30px;
     }
-    .search-field {
+    .searchField {
       width: 60%;
       margin: auto;
       border-radius: 30px;
@@ -36,7 +36,7 @@
   }
 }
 
-.products-container {
+.productsContainer {
   background-color: var(--quaternary);
   width: 90%;
   padding: 10px 30px 30px;
@@ -55,9 +55,10 @@
     border-radius: 15px;
     margin: 20px auto;
     background-color: var(--white);
+    text-transform: uppercase;
   }
 
-  .product-cards {
+  .productCards {
     display: flex;
     flex-wrap: wrap;
     gap: 2%;
@@ -75,31 +76,31 @@
 }
 
 @include responsive(xl) {
-  .feature-container {
+  .featureContainer {
     padding: 20px 10px;
   }
-  .products-container {
-    .category-container {
+  .productsContainer {
+    .categoryContainer {
       gap: 2%;
     }
   }
 }
 
 @include responsive(lg) {
-  .products-container {
+  .productsContainer {
     .title {
       width: 60%;
       font-size: 26px;
       line-height: 2;
     }
-    .category-container {
+    .categoryContainer {
       gap: 2%;
     }
   }
 }
 
 @include responsive(md) {
-  .products-container {
+  .productsContainer {
     .title {
       width: 80%;
       font-size: 22px;
@@ -111,13 +112,13 @@
 }
 
 @include responsive(sm) {
-  .feature-container {
+  .featureContainer {
     padding: 10px;
-    .category-container {
+    .categoryContainer {
       flex-wrap: wrap;
     }
-    .search-field-container {
-      .search-field {
+    .searchFieldContainer {
+      .searchField {
         width: 80% !important;
         svg {
           width: 24px;
@@ -127,7 +128,7 @@
       }
     }
   }
-  .products-container {
+  .productsContainer {
     padding: 15px;
     .title {
       width: 100%;

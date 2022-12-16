@@ -1,9 +1,11 @@
 .container {
-  margin: 20px;
+  margin: 20px auto;
+  width: 90%;
   text-align: center;
 
-  .image-section {
+  .imageSection {
     display: flex;
-    gap: 1%;
+    flex-wrap: wrap;
+    gap: 2%;
   }
 }

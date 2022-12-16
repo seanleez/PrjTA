@@ -49,7 +49,11 @@ const Header: React.FC<IHeader> = ({ layout }) => {
 
   useEffect(() => {
     const body = document.body;
-    body.classList.toggle("overflow-hidden");
+    if (openDropdown) {
+      body.classList.add("overflow-hidden");
+    } else {
+      body.classList.remove("overflow-hidden");
+    }
   }, [openDropdown]);
 
   return (

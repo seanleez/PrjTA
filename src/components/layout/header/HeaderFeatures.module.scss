@@ -9,23 +9,26 @@
   gap: 15px;
 
   .avatar {
-    padding: 0 !important;
-    width: 30px !important;
-    height: 30px !important;
-    div {
-      width: 30px !important;
-      height: 30px !important;
-    }
-  }
-
-  button > svg {
-    width: 20px !important;
-    height: 20px !important;
+    padding: 3px !important;
   }
 }
 
 @include responsive(sm) {
   .headerFeatures {
     gap: 5px;
+    .avatar {
+      padding: 0 !important;
+      width: 30px !important;
+      height: 30px !important;
+      div {
+        width: 30px !important;
+        height: 30px !important;
+      }
+    }
+
+    button > svg {
+      width: 20px !important;
+      height: 20px !important;
+    }
   }
 }

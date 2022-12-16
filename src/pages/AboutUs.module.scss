@@ -1,3 +1,5 @@
+@import "../styles/mixin.scss";
+
 .container {
   display: flex;
   padding: 10px 30px 70px;
@@ -11,7 +13,7 @@
     p {
       font-size: 16px;
 
-      &.left-align {
+      &.leftAlign {
         margin: 10px;
         text-align: left !important;
       }
@@ -22,43 +24,43 @@
       margin-top: 0;
     }
 
-    &.center-content {
+    &.centerContent {
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    &.white-border {
-      border: 3px solid var(--white) !important;
+    &.whiteBorder {
+      border: 3px solid var(--black) !important;
     }
   }
 
   & > div:nth-child(1) {
-    border: 3px solid var(--primary);
-    padding: 0 20px;
+    border: 3px solid var(--black);
+    padding: 20px;
     width: 35%;
   }
 
-  .side-container {
+  .sideContainer {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 20px;
 
     & > div:nth-child(1) {
-      border: 3px solid var(--primary);
-      padding: 0 20px;
+      border: 3px solid var(--black);
+      padding: 20px;
       height: 40%;
     }
 
-    .sub-container {
+    .subContainer {
       flex: 1;
       display: flex;
       gap: 20px;
 
       div {
-        border: 3px solid var(--primary);
-        padding: 0 20px;
+        border: 3px solid var(--black);
+        padding: 20px;
       }
 
       & > div:nth-child(1) {
@@ -66,6 +68,29 @@
       }
       & > div:nth-child(2) {
         flex: 1;
+      }
+    }
+  }
+}
+
+@include responsive(lg) {
+  .container {
+    flex-direction: column;
+
+    & > div:nth-child(1) {
+      width: 100%;
+    }
+  }
+}
+
+@include responsive(sm) {
+  .container {
+    .sideContainer {
+      .subContainer {
+        flex-wrap: wrap;
+        & > div:nth-child(1) {
+          width: 100%;
+        }
       }
     }
   }
