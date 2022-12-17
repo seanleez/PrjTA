@@ -6,7 +6,13 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "./CarouselContainer.module.scss";
 
-const IMAGES: string[] = [Background, CategoryCard1, Background, CategoryCard1];
+const IMAGES: string[] = [
+  Background,
+  CategoryCard1,
+  Background,
+  CategoryCard1,
+  Background,
+];
 
 const renderArrow =
   (direction: string) =>
@@ -19,8 +25,8 @@ const renderArrow =
       position: "absolute",
       top: "45%",
       zIndex: 2,
-      width: "50px",
-      height: "50px",
+      width: "40px",
+      height: "40px",
       border: "none",
       backgroundColor: "white",
       padding: "0",

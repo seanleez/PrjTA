@@ -13,16 +13,21 @@ const FeatureSection: React.FC = () => {
           Merry and Bright SVG PNG Digital Download File Merry and Bright SVG
           PNG Digital Download File
         </p>
+        <div className={styles.rating}>
+          <Rating ratingStar={5} size="small" />
+          <span>2243 sold</span>
+        </div>
         <div className={`${styles.priceTag}`}>
           <span>1.99$</span>
           <span>2.99$</span>
           <span>{"(20% off)"}</span>
         </div>
-        <Rating ratingStar={5} size="large" />
-        <p className={`${styles.subTitle}`}>What you will get</p>
-        <p>&bull; You will receive a PNG format file.</p>
-        <p>&bull; Image resolution 300pdi.</p>
-        <p></p>
+
+        <div className={`${styles.inforSection}`}>
+          <p className={`${styles.subTitle}`}>What you will get:</p>
+          <p>&bull; You will receive a PNG format file.</p>
+          <p>&bull; Image resolution 300pdi.</p>
+        </div>
 
         <div className={`${styles.actions}`}>
           <Button

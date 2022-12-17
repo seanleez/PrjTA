@@ -11,7 +11,7 @@ const DescriptionSection: React.FC = () => {
         Note : NO PHYSICAL PRODUCTS ARE SENDED
       </p>
       <p className={`${styles.title}`}>Describe</p>
-      <p>
+      <p className={`${styles.nonIndent}`}>
         This is a backgroundless PNG design, suitable for printing sublimation
         products, it will be a great design to print on cups, shirts,... it will
         make printed products unique and more impressive. Perfect for your
@@ -31,18 +31,18 @@ const DescriptionSection: React.FC = () => {
       </p>
       <p>&bull; You may not use them for resale in digital form anywhere.</p>
       <p className={`${styles.title}`}>How to purchase</p>
-      <p>
+      <p className={`${styles.nonIndent}`}>
         You can put them in the cart and pay using the payment gateways we
         provide, the packages will be sent to your mail for you to download
         them.
       </p>
       <p className={`${styles.title}`}>Can you get a refund?</p>
-      <p>
+      <p className={`${styles.nonIndent}`}>
         Since this is a digital product, we will not refund you, we will
         properly compensate you in many ways if our product is not as described.
         You can contact us in many ways and guarantee your rights.
       </p>
-      <p className={`${styles.title}`}>Thanks!</p>
+      <p className={`${styles.title} ${styles.center}`}>Thanks!</p>
     </div>
   );
 };

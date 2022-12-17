@@ -1,10 +1,10 @@
 .container {
-  margin: 20px auto;
   width: 90%;
+  margin: auto;
 
-  .imageSection {
+  .subContainer {
     display: flex;
-    flex-wrap: wrap;
+    align-items: flex-start;
     gap: 2%;
   }
 }
