@@ -1,4 +1,6 @@
-.form-container {
+@import "../../styles/mixin.scss";
+
+.formContainer {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -9,7 +11,7 @@
   transform: translateY(calc(50vh - 50% - 50px));
 
   .title {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 900;
     color: var(--primary) !important;
   }
@@ -34,14 +36,13 @@
     color: red;
   }
 
-  .submit-button {
+  .submitButton {
     color: white;
     background-color: var(--primary);
     border-radius: 10px;
     height: 45px;
     font-size: 16px;
     font-weight: bold;
-    margin: 20px 0;
 
     &:hover {
       background-color: var(--primary);
@@ -55,5 +56,38 @@
       text-decoration: none;
       color: var(--primary);
     }
+  }
+}
+
+@media screen and (max-width: 1700px) {
+  .formContainer {
+    margin-left: 10%;
+  }
+}
+
+@include responsive(xl) {
+  .formContainer {
+    background-color: var(--white);
+    border-radius: 50px;
+    padding: 20px;
+    .title {
+      font-size: 24px;
+    }
+  }
+}
+
+@include responsive(md) {
+  .formContainer {
+    .title {
+      font-size: 20px;
+    }
+  }
+}
+
+@include responsive(sm) {
+  .formContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
   }
 }

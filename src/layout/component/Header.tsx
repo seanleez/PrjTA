@@ -16,7 +16,7 @@ interface IHeader {
   layout?: string;
 }
 
-const IS_LOGIN = true;
+const IS_LOGIN = false;
 
 const NAVIGATION_LIST: INavigationItem[] = [
   {

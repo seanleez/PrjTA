@@ -1,23 +1,38 @@
 @import "../../styles/mixin.scss";
 
-.form-container {
+.formContainer {
   display: flex;
   flex-direction: column;
   gap: 15px;
   width: 450px;
   text-align: center;
   color: var(--primary) !important;
-  transform: translateY(calc(50vh - 50% - 30px));
   margin-left: 15%;
 
-  .title {
-    font-size: 32px;
-    font-weight: 900;
-    color: var(--primary) !important;
+  .formHeader {
+    .avatar {
+      background-color: var(--primary);
+      width: 90px;
+      height: 90px;
+      min-width: 90px;
+      min-height: 90px;
+      border-radius: 50%;
+      margin: auto;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--primary) !important;
+    }
   }
 
   input {
     color: var(--primary) !important;
+    background-color: var(--white);
+    border-radius: 10px;
     padding: 10px;
   }
 
@@ -36,7 +51,7 @@
     color: red;
   }
 
-  .submit-button {
+  .submitButton {
     color: white;
     background-color: var(--primary);
     border-radius: 10px;
@@ -60,7 +75,44 @@
 }
 
 @media screen and (max-width: 1700px) {
-  .form-container {
+  .formContainer {
     margin-left: 10%;
+  }
+}
+
+@include responsive(xl) {
+  .formContainer {
+    padding: 20px;
+    .formHeader {
+      .title {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+@include responsive(md) {
+  .formContainer {
+    .formHeader {
+      .avatar {
+        width: 70px;
+        height: 70px;
+        min-width: 70px;
+        min-height: 70px;
+      }
+      .title {
+        font-size: 20px;
+        background-color: var(--white);
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@include responsive(sm) {
+  .formContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
   }
 }

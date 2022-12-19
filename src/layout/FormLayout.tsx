@@ -3,8 +3,8 @@ import styles from "./FormLayout.module.scss";
 import {
   Background,
   BackgroundMobile,
-  BareBackground,
-  BareBackgroundMobile,
+  NoneImageBg,
+  NoneImageBgMobile,
 } from "@assets/images";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -32,8 +32,8 @@ const FormLayout: React.FC<any> = ({ layout, children }) => {
         src={
           pathname === "/about-us"
             ? width < 1024
-              ? BareBackgroundMobile
-              : BareBackground
+              ? NoneImageBgMobile
+              : NoneImageBg
             : width < 1024
             ? BackgroundMobile
             : Background

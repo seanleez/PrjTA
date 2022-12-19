@@ -64,12 +64,15 @@ const RegisterForm: React.FC<IRegisterForm> = ({ title }) => {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className={`${styles["form-container"]}`}
+      className={`${styles.formContainer}`}
       noValidate
       autoComplete="off"
       spellCheck="false"
     >
-      <Typography className={`${styles["title"]}`}>{title}</Typography>
+      <div className={`${styles.formHeader}`}>
+        <div className={`${styles.avatar}`}></div>
+        <Typography className={`${styles.title}`}>{title}</Typography>
+      </div>
       <TextField
         placeholder="User Name *"
         name="userName"
@@ -179,14 +182,11 @@ const RegisterForm: React.FC<IRegisterForm> = ({ title }) => {
         onChange={formik.handleChange}
       />
 
-      <Button
-        className={`primary-button ${styles["submit-button"]}`}
-        type="submit"
-      >
+      <Button className={`primary-button ${styles.submitButton}`} type="submit">
         {title === "Register" ? "Sign up" : "Update"}
       </Button>
 
-      <Typography className={`${styles["link"]}`}>
+      <Typography className={`${styles.link}`}>
         Already have an account?
         <Link to={"/login"}>
           <b> Sign In</b>
