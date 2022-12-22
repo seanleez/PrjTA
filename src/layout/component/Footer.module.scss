@@ -1,3 +1,5 @@
+@import "../../styles/mixin.scss";
+
 .footer {
   padding: 10px;
   img {
@@ -6,14 +8,26 @@
   }
 }
 
-.form-footer {
+.formFooter {
   position: absolute;
   bottom: 0;
   right: 0;
 }
 
-.normal-footer {
+.normalFooter {
   margin-top: 30px;
   text-align: right;
   background-color: var(--primary);
+}
+
+@include responsive(md) {
+  .formFooter {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+
+    &.absolute {
+      position: absolute;
+    }
+  }
 }

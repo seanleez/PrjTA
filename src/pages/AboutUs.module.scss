@@ -1,0 +1,97 @@
+@import "../styles/mixin.scss";
+
+.container {
+  display: flex;
+  padding: 10px 30px 70px;
+  gap: 20px;
+  min-height: calc(100vh);
+
+  div {
+    text-align: center;
+    border-radius: 20px;
+
+    p {
+      font-size: 16px;
+
+      &.leftAlign {
+        margin: 10px;
+        text-align: left !important;
+      }
+    }
+    & > p:nth-child(1) {
+      font-size: 20px !important;
+      font-weight: bold;
+      margin-top: 0;
+    }
+
+    &.centerContent {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &.whiteBorder {
+      border: 3px solid var(--black) !important;
+    }
+  }
+
+  & > div:nth-child(1) {
+    border: 3px solid var(--black);
+    padding: 20px;
+    width: 35%;
+  }
+
+  .sideContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & > div:nth-child(1) {
+      border: 3px solid var(--black);
+      padding: 20px;
+      height: 40%;
+    }
+
+    .subContainer {
+      flex: 1;
+      display: flex;
+      gap: 20px;
+
+      div {
+        border: 3px solid var(--black);
+        padding: 20px;
+      }
+
+      & > div:nth-child(1) {
+        width: 60%;
+      }
+      & > div:nth-child(2) {
+        flex: 1;
+      }
+    }
+  }
+}
+
+@include responsive(lg) {
+  .container {
+    flex-direction: column;
+
+    & > div:nth-child(1) {
+      width: 100%;
+    }
+  }
+}
+
+@include responsive(sm) {
+  .container {
+    .sideContainer {
+      .subContainer {
+        flex-wrap: wrap;
+        & > div:nth-child(1) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

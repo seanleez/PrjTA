@@ -1,0 +1,12 @@
+@import "../../../styles/mixin.scss";
+
+.container {
+  width: 58%;
+  text-align: center;
+}
+
+@include responsive(lg) {
+  .container {
+    width: 100%;
+  }
+}

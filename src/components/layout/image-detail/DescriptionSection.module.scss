@@ -1,0 +1,25 @@
+.description {
+  padding: 20px 30px;
+  margin: 20px 0;
+  flex: 1;
+  background-color: var(--quaternary);
+  border-radius: 20px;
+  border: 1px solid var(--primary);
+
+  .title {
+    font-weight: bold;
+  }
+
+  .title,
+  p.nonIndent {
+    text-indent: 0;
+  }
+
+  p {
+    text-indent: 10px;
+  }
+
+  p.center {
+    text-align: center;
+  }
+}

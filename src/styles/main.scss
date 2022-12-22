@@ -10,7 +10,12 @@
 }
 
 body {
+  min-width: 360px;
   margin: 0;
+
+  &.overflow-hidden {
+    overflow: hidden;
+  }
 }
 
 button.primary-button {
@@ -20,5 +25,23 @@ button.primary-button {
 
   &:hover {
     background-color: var(--secondary) !important;
+  }
+}
+
+p {
+  font-size: 13px;
+}
+.carousel-root {
+  // display: flex;
+  // flex-direction: row-reverse;
+  .carousel {
+    &.carousel-slider {
+      border-radius: 20px;
+      box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+        0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%) !important;
+    }
+    ul.thumbs {
+      padding-left: 0 !important;
+    }
   }
 }

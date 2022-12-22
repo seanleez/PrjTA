@@ -1,17 +1,44 @@
 import { Footer, Header } from "./component";
 import styles from "./FormLayout.module.scss";
-import { Background } from "@assets/images";
+import {
+  Background,
+  BackgroundMobile,
+  NoneImageBg,
+  NoneImageBgMobile,
+} from "@assets/images";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const FormLayout: React.FC<any> = ({ layout, children }) => {
-  console.log(layout);
+  const [width, setWidth] = useState(window.innerWidth);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div className={`${styles["form-layout"]}`}>
       <Header layout={layout} />
       {children}
       <Footer layout={layout} />
       <img
-        src={Background}
-        alt={Background}
+        src={
+          pathname === "/about-us"
+            ? width < 1024
+              ? NoneImageBgMobile
+              : NoneImageBg
+            : width < 1024
+            ? BackgroundMobile
+            : Background
+        }
+        alt="background"
         className={`${styles["background"]}`}
       />
     </div>

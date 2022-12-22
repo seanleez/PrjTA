@@ -1,0 +1,103 @@
+@import "../../../styles/mixin.scss";
+
+$span-color: "#595959";
+
+.description {
+  flex: 1;
+  background-color: var(--quaternary);
+  border-radius: 20px;
+  border: 1px solid var(--primary);
+  padding: 20px 30px;
+
+  span {
+    font-size: 13px;
+    color: $span-color;
+  }
+  .title {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 22px;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin: 10px auto;
+  }
+
+  .priceTag {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 50px;
+    gap: 5px;
+    span {
+      &:nth-child(1) {
+        font-size: 30px;
+        font-weight: bold;
+        color: var(--black);
+      }
+
+      &:nth-child(2) {
+        text-decoration: line-through;
+        text-decoration-color: $span-color;
+      }
+    }
+  }
+
+  .inforSection {
+    .subTitle {
+      font-weight: bold;
+      text-indent: 0;
+    }
+    p {
+      text-indent: 10px;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.5 ease;
+    margin-top: 20px;
+
+    button {
+      width: 100%;
+      height: 40px;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: capitalize;
+      transition: all 0.3s ease;
+      border-radius: 25px;
+
+      &:nth-child(1) {
+        color: var(--black);
+        background-color: var(--white);
+        border: 2px solid var(--black);
+      }
+      &:nth-child(2) {
+        color: var(--white) !important;
+        background-color: var(--black) !important;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+@include responsive(lg) {
+  .description {
+    .actions {
+      gap: 10px;
+      button {
+        width: 350px;
+      }
+    }
+  }
+}

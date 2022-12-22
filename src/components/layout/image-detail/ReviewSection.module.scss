@@ -1,0 +1,25 @@
+.review-container {
+  text-align: left;
+  padding: 20px 30px;
+  background-color: var(--quaternary);
+  border-radius: 20px;
+  border: 1px solid var(--primary);
+
+  .title {
+    height: 45px;
+    width: 200px;
+    text-align: center;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.8;
+    border-radius: 15px;
+    margin: 15px auto;
+    background-color: var(--white);
+    border: 1px solid var(--primary);
+  }
+
+  .subtitle {
+    font-weight: bold;
+  }
+}

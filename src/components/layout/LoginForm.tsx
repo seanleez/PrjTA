@@ -39,12 +39,12 @@ const LoginForm: React.FC = () => {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className={`${styles["form-container"]}`}
+      className={`${styles.formContainer}`}
       noValidate
       autoComplete="off"
       spellCheck="false"
     >
-      <Typography className={`${styles["title"]}`}>Welcome Back!</Typography>
+      <Typography className={`${styles.title}`}>Welcome Back!</Typography>
 
       <TextField
         placeholder="Email *"
@@ -86,14 +86,11 @@ const LoginForm: React.FC = () => {
         value={formik.values.password}
         onChange={formik.handleChange}
       />
-      <Button
-        className={`primary-button ${styles["submit-button"]}`}
-        type="submit"
-      >
+      <Button className={`primary-button ${styles.submitButton}`} type="submit">
         Login
       </Button>
       <Divider />
-      <Typography className={`${styles["link"]}`}>
+      <Typography className={`${styles.link}`}>
         Don't have an account?
         <Link to={"/register"}>
           <b> Sign Up</b>

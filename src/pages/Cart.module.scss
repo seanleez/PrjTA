@@ -1,0 +1,10 @@
+.container {
+  width: 90%;
+  margin: auto;
+
+  .subContainer {
+    display: flex;
+    align-items: flex-start;
+    gap: 2%;
+  }
+}
