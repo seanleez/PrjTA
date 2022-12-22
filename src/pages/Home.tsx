@@ -7,8 +7,9 @@ import {
 } from "@assets/images";
 import { CategoryCard, ProductCard } from "@components/layout";
 import { KeyboardBackspace, Search } from "@mui/icons-material";
-import { Box, Button, InputAdornment, TextField } from "@mui/material";
-import React, { useState } from "react";
+import { Button, InputAdornment, TextField } from "@mui/material";
+import { useGetPostQuery, useGetPostsQuery } from "@services/postServices";
+import React, { useEffect, useState } from "react";
 import styles from "./Home.module.scss";
 interface ICategory {
   imgSrc: string;
@@ -76,6 +77,26 @@ const SECTION_LIST = ["Product of interest", "Product on sale", "New Product"];
 
 const Home: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
+  const {
+    data: posts,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetPostsQuery("");
+  const {
+    data: post,
+    isFetching,
+    isSuccess: isSinglePostSuccess,
+  } = useGetPostQuery(5);
+
+  useEffect(() => {
+    console.log("posts", posts, isLoading, isSuccess, isError, error);
+  }, [posts, isLoading, isSuccess, isError, error]);
+
+  useEffect(() => {
+    console.log("post", post, isFetching, isSinglePostSuccess);
+  }, [post, isFetching, isSinglePostSuccess]);
 
   const handleClickCard = (e: React.MouseEvent<HTMLDivElement>, i: number) => {
     if (activeIndex !== i) {
@@ -86,8 +107,8 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Box className={`${styles.featureContainer}`}>
-        <Box className={`${styles.categoryContainer}`}>
+      <div className={`${styles.featureContainer}`}>
+        <div className={`${styles.categoryContainer}`}>
           {LIST_CATEGORY_CARDS.map((card: ICategory, i: number) => (
             <CategoryCard
               key={i}
@@ -99,8 +120,8 @@ const Home: React.FC = () => {
               }
             />
           ))}
-        </Box>
-        <Box className={`${styles.searchFieldContainer}`}>
+        </div>
+        <div className={`${styles.searchFieldContainer}`}>
           <TextField
             placeholder="Find the image you need"
             InputProps={{
@@ -112,12 +133,12 @@ const Home: React.FC = () => {
             }}
             className={`${styles.searchField}`}
           />
-        </Box>
-      </Box>
-      {SECTION_LIST.map((section: string) => (
-        <Box className={`${styles.productsContainer}`}>
+        </div>
+      </div>
+      {SECTION_LIST.map((section: string, i: number) => (
+        <div key={i} className={`${styles.productsContainer}`}>
           <div className={`${styles.title}`}>{section}</div>
-          <Box className={`${styles.productCards}`}>
+          <div className={`${styles.productCards}`}>
             {LIST_PRODUCT_CARDS.map((card: any, i: number) => (
               <ProductCard
                 key={i}
@@ -127,8 +148,8 @@ const Home: React.FC = () => {
                 title={card.title}
               />
             ))}
-          </Box>
-        </Box>
+          </div>
+        </div>
       ))}
 
       <Button className={`primary-button ${styles["see-more"]}`}>
