@@ -1,7 +1,9 @@
 import { ShoppingCart, Edit, Logout } from "@mui/icons-material";
 import {
   Avatar,
+  Badge,
   Box,
+  Button,
   IconButton,
   Menu,
   MenuItem,
@@ -27,7 +29,7 @@ const NAVIGATION_LIST: INavigationItem[] = [
   },
 ];
 
-const HeaderFeatures: React.FC = () => {
+const HeaderFeatures: React.FC<{ isLoggin: boolean }> = ({ isLoggin }) => {
   const [anchorElMenu, setAnchorElUser] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
 
@@ -47,49 +49,70 @@ const HeaderFeatures: React.FC = () => {
   };
 
   return (
-    <div className={`${styles.headerFeatures}`}>
-      <Tooltip title="Cart">
-        <IconButton size="small" onClick={() => navigate("/cart")}>
-          <ShoppingCart />
-        </IconButton>
-      </Tooltip>
-      <Box>
-        <Tooltip title="Your account">
-          <IconButton
-            size="small"
-            onClick={handleOpenActionMenu}
-            className={`${styles.avatar}`}
-          >
-            <Avatar alt="Dong Le" />
-          </IconButton>
-        </Tooltip>
-        <Menu
-          sx={{ mt: "45px", p: 0 }}
-          anchorEl={anchorElMenu}
-          anchorOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
-          keepMounted
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
-          open={Boolean(anchorElMenu)}
-          onClose={handleCloseActionMenu}
-        >
-          {NAVIGATION_LIST.map((item: INavigationItem, index: number) => (
-            <MenuItem
-              key={index}
-              onClick={() => handleCloseActionMenu(item.label)}
+    <>
+      {isLoggin ? (
+        <div className={`${styles.headerFeatures}`}>
+          <Tooltip title="Cart">
+            <Badge
+              overlap="circular"
+              anchorOrigin={{ vertical: "top", horizontal: "right" }}
+              badgeContent={
+                <Avatar className={styles.notification} alt="3" src="dummy" />
+              }
+              className={styles.badgeCard}
+              onClick={() => navigate("/cart")}
             >
-              {item.icon}
-              <Typography sx={{ ml: "5px" }}>{item.label}</Typography>
-            </MenuItem>
-          ))}
-        </Menu>
-      </Box>
-    </div>
+              <ShoppingCart />
+            </Badge>
+          </Tooltip>
+          <Box>
+            <Tooltip title="Your account">
+              <IconButton
+                size="small"
+                onClick={handleOpenActionMenu}
+                className={`${styles.avatar}`}
+              >
+                <Avatar alt="Dong Le" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: "45px", p: 0 }}
+              anchorEl={anchorElMenu}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElMenu)}
+              onClose={handleCloseActionMenu}
+            >
+              {NAVIGATION_LIST.map((item: INavigationItem, index: number) => (
+                <MenuItem
+                  key={index}
+                  onClick={() => handleCloseActionMenu(item.label)}
+                >
+                  {item.icon}
+                  <Typography sx={{ ml: "5px" }}>{item.label}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+        </div>
+      ) : (
+        <div className={`${styles.actions}`}>
+          <Button variant="contained" onClick={() => navigate("/register")}>
+            Sign Up
+          </Button>
+          <Button variant="contained" onClick={() => navigate("/login")}>
+            Login
+          </Button>
+        </div>
+      )}
+    </>
   );
 };
 

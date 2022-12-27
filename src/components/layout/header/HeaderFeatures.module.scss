@@ -8,14 +8,48 @@
   justify-content: flex-end;
   gap: 15px;
 
+  .badgeCard {
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 50%;
+    transition: 0.3s all ease;
+
+    &:hover {
+      background-color: white;
+    }
+  }
+  .notification {
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+    border: 1px solid white;
+    background-color: red;
+  }
   .avatar {
     padding: 3px !important;
   }
 }
 
+.actions {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  button {
+    font-weight: bold;
+    border-radius: 15px;
+  }
+}
+
+@include responsive(md) {
+  .actions {
+    display: none;
+  }
+}
+
 @include responsive(sm) {
   .headerFeatures {
-    gap: 5px;
+    gap: 7px;
     .avatar {
       padding: 0 !important;
       width: 30px !important;
@@ -24,6 +58,12 @@
         width: 30px !important;
         height: 30px !important;
       }
+    }
+
+    .notification {
+      width: 20px;
+      height: 20px;
+      padding: 5px;
     }
 
     button > svg {

@@ -8,7 +8,7 @@ import {
   Info,
   Login,
 } from "@mui/icons-material";
-import { Button, Divider, IconButton } from "@mui/material";
+import { Divider, IconButton } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Header.module.scss";
@@ -16,7 +16,7 @@ interface IHeader {
   layout?: string;
 }
 
-const IS_LOGIN = false;
+const IS_LOGIN = true;
 
 const NAVIGATION_LIST: INavigationItem[] = [
   {
@@ -59,18 +59,18 @@ const Header: React.FC<IHeader> = ({ layout }) => {
   return (
     <>
       <div
-        className={`${styles["header"]} ${
-          layout ? styles["form-header"] : styles["normal-header"]
+        className={`${styles.header} ${
+          layout ? styles.formHeader : styles.normalHeader
         }`}
       >
-        <ul className={`${styles["navigation-list"]}`}>
+        <ul className={`${styles.navigationList}`}>
           {NAVIGATION_LIST.slice(0, 2).map((item: INavigationItem) => (
             <li key={item.path}>
               <Link to={item.path}>{item.label}</Link>
             </li>
           ))}
         </ul>
-        <div className={`${styles["navigation-container"]}`}>
+        <div className={`${styles.navigationContainer}`}>
           <IconButton onClick={() => setOpenDropdown(!openDropdown)}>
             <Dehaze />
           </IconButton>
@@ -80,7 +80,6 @@ const Header: React.FC<IHeader> = ({ layout }) => {
             list={NAVIGATION_LIST}
             onClose={() => setOpenDropdown(false)}
           />
-
           <img
             src={Logo}
             alt={Logo}
@@ -91,20 +90,9 @@ const Header: React.FC<IHeader> = ({ layout }) => {
           />
         </div>
 
-        {IS_LOGIN ? (
-          <HeaderFeatures />
-        ) : (
-          <div className={`${styles["actions"]}`}>
-            <Button variant="contained" onClick={() => navigate("/register")}>
-              Sign Up
-            </Button>
-            <Button variant="contained" onClick={() => navigate("/login")}>
-              Login
-            </Button>
-          </div>
-        )}
+        <HeaderFeatures isLoggin={IS_LOGIN} />
       </div>
-      <Divider style={layout ? { display: "none" } : {}} />
+      {openDropdown && <Divider />}
     </>
   );
 };

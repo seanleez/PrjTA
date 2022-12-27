@@ -100,7 +100,6 @@ const Home: React.FC = () => {
 
   const handleClickCard = (e: React.MouseEvent<HTMLDivElement>, i: number) => {
     if (activeIndex !== i) {
-      console.log(i);
       setActiveIndex(i);
     }
   };
@@ -149,12 +148,12 @@ const Home: React.FC = () => {
               />
             ))}
           </div>
+          <Button className={`primary-button ${styles.seeMore}`}>
+            <span>See More</span>
+            <KeyboardBackspace />
+          </Button>
         </div>
       ))}
-
-      <Button className={`primary-button ${styles["see-more"]}`}>
-        See More <KeyboardBackspace />
-      </Button>
     </>
   );
 };

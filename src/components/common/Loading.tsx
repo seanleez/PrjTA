@@ -3,7 +3,7 @@ import styles from "./Loading.module.scss";
 import styled from "styled-components";
 
 interface ILoading {
-  loading: boolean;
+  loading?: boolean;
   size?: string;
 }
 

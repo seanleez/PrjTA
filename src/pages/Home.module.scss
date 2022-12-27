@@ -65,13 +65,14 @@
   }
 }
 
-.see-more {
+.seeMore {
   display: flex !important;
+  gap: 2px;
   margin: auto !important;
   height: 40px;
   width: 120px;
   svg {
-    transform: scale(-1, 1);
+    transform: scale(-1, 1) translateY(-1px);
   }
 }
 
