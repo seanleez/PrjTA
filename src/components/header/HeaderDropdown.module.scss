@@ -1,9 +1,8 @@
-@import "../../../styles/mixin.scss";
+@import "../../styles/mixin.scss";
 
 $header-height: 70px;
 
 .headerDropdown {
-  display: none;
   position: absolute;
   top: $header-height;
   left: 0;
@@ -12,8 +11,17 @@ $header-height: 70px;
   border-top: 1px solid gray;
   z-index: 999;
 
+  transition: opacity 0.3s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+
+  opacity: 1;
+  height: auto;
+
   &.open {
-    display: block;
+    opacity: 1;
+    height: auto;
   }
   ul {
     padding-bottom: 0;
@@ -32,16 +40,17 @@ $header-height: 70px;
 }
 
 .backdrop {
-  display: none;
+  // display: none;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   top: calc($header-height);
   left: 0;
   width: 100%;
   bottom: 0;
+  backdrop-filter: blur(2px);
   z-index: 998;
 
-  &.open {
-    display: block;
-  }
+  // &.open {
+  //   display: block;
+  // }
 }

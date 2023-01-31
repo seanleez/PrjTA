@@ -1,6 +1,6 @@
 import styles from "./Cart.module.scss";
 
-import { CartContainer, Checkout } from "@components/layout/cart";
+import { CartContainer, Checkout } from "@components/cart";
 
 const Cart: React.FC = () => {
   return (

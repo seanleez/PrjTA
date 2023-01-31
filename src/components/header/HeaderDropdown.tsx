@@ -5,14 +5,12 @@ import styles from "./HeaderDropdown.module.scss";
 interface IHeaderDropdown {
   open: boolean;
   list: INavigationItem[];
-  onClose: () => void;
 }
 
-const HeaderDropdown: React.FC<IHeaderDropdown> = ({ open, list, onClose }) => {
+const HeaderDropdown: React.FC<IHeaderDropdown> = ({ open, list }) => {
   const navigate = useNavigate();
 
   const handleClickItem = (path: string) => {
-    onClose();
     navigate(path);
   };
 
@@ -33,10 +31,7 @@ const HeaderDropdown: React.FC<IHeaderDropdown> = ({ open, list, onClose }) => {
             ))}
         </List>
       </div>
-      <div
-        className={`${styles.backdrop} ${open ? styles.open : ""}`}
-        onClick={onClose}
-      />
+      <div className={`${styles.backdrop} ${open ? styles.open : ""}`} />
     </>
   );
 };

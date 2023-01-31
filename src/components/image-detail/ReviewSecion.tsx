@@ -40,10 +40,13 @@ const REVIEW_COMMENTS: IComment[] = [
   },
 ];
 
-const reviewInstance = (comment: IComment, i: number) => {
+const reviewInstance = (comment: IComment, index: number) => {
   return (
-    <div key={i}>
-      <p className={`${styles["subtitle"]}`}>{comment.title}</p>
+    <div key={index}>
+      <div className={`${styles.userInfor}`}>
+        <img src="" alt="" />
+        <p className={`${styles.name}`}>{comment.title}</p>
+      </div>
       <Rating ratingStar={comment.ratingStar} size="small" />
       <p>{comment.content}</p>
     </div>
@@ -52,10 +55,10 @@ const reviewInstance = (comment: IComment, i: number) => {
 
 const ReviewSection: React.FC = () => {
   return (
-    <div className={`${styles["review-container"]}`}>
-      <div className={`${styles["title"]}`}>Reviews</div>
-      {REVIEW_COMMENTS.map((comment: IComment, i: number) => {
-        return reviewInstance(comment, i);
+    <div className={`${styles.reviewContainer}`}>
+      <div className={`${styles.title}`}>Reviews</div>
+      {REVIEW_COMMENTS.map((comment: IComment, index: number) => {
+        return reviewInstance(comment, index);
       })}
     </div>
   );

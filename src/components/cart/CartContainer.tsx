@@ -1,5 +1,5 @@
+import { Background } from "@assets/images";
 import styles from "./CartContainer.module.scss";
-import { Background, CategoryCard1 } from "@assets/images";
 import CartItem from "./CartItem";
 
 interface IItem {

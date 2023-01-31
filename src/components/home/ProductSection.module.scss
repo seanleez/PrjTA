@@ -1,46 +1,10 @@
-@import "../styles/mixin.scss";
-
-.featureContainer {
-  background-image: linear-gradient(
-    to bottom,
-    var(--secondary),
-    var(--primary)
-  );
-  padding: 20px;
-  .categoryContainer {
-    display: flex;
-    justify-content: center;
-    gap: 1%;
-    padding: 10px 0;
-  }
-
-  .searchFieldContainer {
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-
-    div {
-      border-radius: 30px;
-    }
-    .searchField {
-      width: 60%;
-      margin: auto;
-      border-radius: 30px;
-      background-color: var(--white);
-    }
-
-    svg {
-      width: 30px;
-      height: 30px;
-    }
-  }
-}
+@import "../../styles/mixin.scss";
 
 .productsContainer {
   background-color: var(--quaternary);
   width: 90%;
   padding: 10px 30px 30px;
-  margin: 35px auto;
+  margin: 30px auto;
   border: 2px solid var(--primary);
   border-radius: 20px;
 
@@ -61,6 +25,7 @@
   .productCards {
     display: flex;
     flex-wrap: wrap;
+    // justify-content: center;
     gap: 2%;
   }
 }
@@ -68,7 +33,7 @@
 .seeMore {
   display: flex !important;
   gap: 2px;
-  margin: auto !important;
+  margin: 20px auto 0 !important;
   height: 40px;
   width: 120px;
   svg {
@@ -77,9 +42,6 @@
 }
 
 @include responsive(xl) {
-  .featureContainer {
-    padding: 20px 10px;
-  }
   .productsContainer {
     .categoryContainer {
       gap: 2%;
@@ -93,9 +55,6 @@
       width: 60%;
       font-size: 26px;
       line-height: 2;
-    }
-    .categoryContainer {
-      gap: 2%;
     }
   }
 }
@@ -113,22 +72,6 @@
 }
 
 @include responsive(sm) {
-  .featureContainer {
-    padding: 10px;
-    .categoryContainer {
-      flex-wrap: wrap;
-    }
-    .searchFieldContainer {
-      .searchField {
-        width: 80% !important;
-        svg {
-          width: 24px;
-          height: 24px;
-          padding: 0;
-        }
-      }
-    }
-  }
   .productsContainer {
     padding: 15px;
     .title {

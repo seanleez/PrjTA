@@ -1,0 +1,29 @@
+@import "../../styles/mixin.scss";
+
+img.logo {
+  display: block;
+  margin-left: 0px;
+  height: 30px;
+  width: auto;
+  cursor: pointer;
+}
+
+@include responsive(md) {
+  img.logo {
+    margin-left: 10px;
+    height: 25px;
+  }
+}
+
+@include responsive(sm) {
+  img.logo {
+    height: 22px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  img.logo {
+    margin-left: 5px;
+    height: 20px;
+  }
+}

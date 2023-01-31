@@ -5,9 +5,9 @@ import styles from "./InvalidPage.module.scss";
 const InvalidPage: React.FC = () => {
   const navigate = useNavigate();
   return (
-    <Box className={`${styles["container"]}`}>
-      <Typography className={`${styles["title"]}`}>404</Typography>
-      <Typography className={`${styles["message"]}`}>
+    <Box className={`${styles.container}`}>
+      <Typography className={`${styles.title}`}>404</Typography>
+      <Typography className={`${styles.message}`}>
         The page could not be found !
       </Typography>
       <Button

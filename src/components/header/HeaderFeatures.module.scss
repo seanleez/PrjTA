@@ -1,4 +1,4 @@
-@import "../../../styles/mixin.scss";
+@import "../../styles/mixin.scss";
 
 .headerFeatures {
   width: 33%;
@@ -19,9 +19,9 @@
     }
   }
   .notification {
-    width: 25px;
-    height: 25px;
-    padding: 2px;
+    width: 22px;
+    height: 22px;
+    font-size: 18px;
     border: 1px solid white;
     background-color: red;
   }
@@ -42,6 +42,9 @@
 }
 
 @include responsive(md) {
+  .headerFeatures {
+    flex: 1;
+  }
   .actions {
     display: none;
   }
@@ -61,9 +64,9 @@
     }
 
     .notification {
-      width: 20px;
-      height: 20px;
-      padding: 5px;
+      width: 18px;
+      height: 18px;
+      font-size: 16px;
     }
 
     button > svg {
