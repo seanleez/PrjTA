@@ -2,7 +2,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const postAPI = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://jsonplaceholder.typicode.com/",
+  }),
   endpoints: (builder) => ({
     getPosts: builder.query({
       query: () => "posts",

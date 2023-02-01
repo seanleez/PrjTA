@@ -1,5 +1,6 @@
 import { FeatureContainer, ProductSection } from "@components/home";
-import { useGetPostQuery, useGetPostsQuery } from "@services/postServices";
+import { useGetPostQuery, useGetPostsQuery } from "@services/posts";
+import { useGetCurrentUserQuery, useRefreshTokenQuery } from "@services/auth";
 import React, { useEffect } from "react";
 
 const Home: React.FC = () => {
@@ -16,6 +17,8 @@ const Home: React.FC = () => {
     isSuccess: isSinglePostSuccess,
   } = useGetPostQuery(5);
 
+  const { data: token } = useRefreshTokenQuery("");
+  console.log("🚀 ~ file: Home.tsx:21 ~ token", token);
   useEffect(() => {
     console.log("posts", posts, isLoading, isSuccess, isError, error);
   }, [posts, isLoading, isSuccess, isError, error]);
