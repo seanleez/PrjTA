@@ -1,14 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { postAPI } from "@services/postServices";
-import cartReducer from "./slices/cartSlice";
+import { apiSlice } from "@redux/slices/apiSlice";
+import authReducer from "./slices/authSlice";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    carts: cartReducer,
-    [postAPI.reducerPath]: postAPI.reducer,
+    auth: authReducer,
+    [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(postAPI.middleware),
+    getDefaultMiddleware().concat(apiSlice.middleware),
+  devTools: true,
 });
 
-export default store;
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;
