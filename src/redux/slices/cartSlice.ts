@@ -1,22 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface ICartItem {
+type TCartItem = {
   id: string;
   name: string;
   price: number;
   quantity: number;
-}
+};
 
-interface IState {
-  cartItems: ICartItem[];
-}
+type TState = {
+  cartItems: TCartItem[];
+};
 
-interface IAction {
-  type: string;
-  payload: any;
-}
-
-const initialState: IState = {
+const initialState: TState = {
   cartItems: [],
 };
 
@@ -24,15 +19,15 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState: initialState,
   reducers: {
-    addItem(state: IState, action: IAction) {
-      console.log(state, action);
+    addItem(state: TState, action: PayloadAction<number>) {
+      console.log("🚀 ~ file: cartSlice.ts:28 ~ addItem ~ action", action);
+      console.log("🚀 ~ file: cartSlice.ts:28 ~ addItem ~ state", state);
     },
-    deleteItem(state: IState, action: IAction) {
+    deleteItem(state: TState, action: PayloadAction<number>) {
       console.log(state, action);
     },
   },
 });
 
-const cartReducer = cartSlice.reducer;
 export const { addItem, deleteItem } = cartSlice.actions;
-export default cartReducer;
+export default cartSlice.reducer;
