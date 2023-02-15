@@ -1,0 +1,73 @@
+@import "../../styles/mixin.scss";
+
+.navigationList {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  width: 33%;
+
+  li {
+    list-style-type: none;
+    a {
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 15px;
+      transition: all 0.3 ease;
+    }
+  }
+
+  &.formHeader {
+    ul.navigationList > li > a {
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+
+  &.normalHeader {
+    ul.navigationList > li > a {
+      &:hover {
+        color: var(--white);
+      }
+    }
+  }
+}
+
+.navigationContainer {
+  display: none;
+  gap: 10px;
+
+  button {
+    display: none;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@include responsive(md) {
+  .navigationContainer {
+    display: block;
+    button {
+      display: block;
+      border: 1px solid var(--black);
+    }
+
+    img {
+      height: 25px;
+    }
+  }
+  ul.navigationList {
+    display: none;
+  }
+}
+
+@include responsive(sm) {
+  .navigationContainer {
+    gap: 5px;
+    img {
+      height: 20px;
+    }
+  }
+}

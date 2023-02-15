@@ -1,4 +1,4 @@
-.review-container {
+.reviewContainer {
   text-align: left;
   padding: 20px 30px;
   background-color: var(--quaternary);
@@ -19,7 +19,19 @@
     border: 1px solid var(--primary);
   }
 
-  .subtitle {
-    font-weight: bold;
+  .userInfor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background-color: black;
+    }
+    .name {
+      font-weight: bold;
+    }
   }
 }

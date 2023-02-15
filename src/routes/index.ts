@@ -1,13 +1,13 @@
 import { IRoute } from "@constants/interface";
-import {
-  AboutUs,
-  Cart,
-  EditPersonalInfor,
-  Home,
-  ImageDetail,
-  Login,
-  Register,
-} from "@pages";
+import React from "react";
+
+const Home = React.lazy(() => import("@pages/Home"));
+const AboutUs = React.lazy(() => import("@pages/AboutUs"));
+const Cart = React.lazy(() => import("@pages/Cart"));
+const EditPersonalInfor = React.lazy(() => import("@pages/EditPersonalInfor"));
+const ImageDetail = React.lazy(() => import("@pages/ImageDetail"));
+const Login = React.lazy(() => import("@pages/Login"));
+const Register = React.lazy(() => import("@pages/Register"));
 
 const publicRoutes: IRoute[] = [
   { path: "/", component: Home },

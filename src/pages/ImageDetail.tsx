@@ -3,7 +3,7 @@ import {
   DescriptionSection,
   FeatureSection,
   ReviewSection,
-} from "@components/layout/image-detail";
+} from "@components/image-detail";
 import styles from "./ImageDetail.module.scss";
 const ImageDetail: React.FC = () => {
   return (

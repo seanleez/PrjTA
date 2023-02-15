@@ -82,12 +82,14 @@
 
 @include responsive(lg) {
   .card {
-    width: 49%;
+    margin-left: 2.5%;
+    width: 45%;
   }
 }
 @include responsive(sm) {
   .card {
-    width: 100%;
+    margin-left: 5%;
+    width: 90%;
     .price {
       font-size: 20px !important;
       line-height: 2 !important;

@@ -19,15 +19,3 @@
   text-align: right;
   background-color: var(--primary);
 }
-
-@include responsive(md) {
-  .formFooter {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-
-    &.absolute {
-      position: absolute;
-    }
-  }
-}

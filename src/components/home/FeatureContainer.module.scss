@@ -1,0 +1,71 @@
+@import "../../styles/mixin.scss";
+
+.featureContainer {
+  background-image: linear-gradient(
+    to bottom,
+    var(--secondary),
+    var(--primary)
+  );
+  padding: 20px;
+  border-top: 1px solid var(--white);
+
+  .categoryContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    padding: 10px 0;
+  }
+
+  .searchFieldContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+
+    div {
+      border-radius: 30px;
+    }
+    .searchField {
+      width: 60%;
+      margin: auto;
+      border-radius: 30px;
+      background-color: var(--white);
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+@include responsive(xl) {
+  .featureContainer {
+    padding: 20px 10px;
+  }
+  .productsContainer {
+    .categoryContainer {
+      gap: 2%;
+    }
+  }
+}
+
+@include responsive(sm) {
+  .featureContainer {
+    padding: 10px;
+    .categoryContainer {
+      flex-wrap: wrap;
+    }
+    .searchFieldContainer {
+      padding-top: 0;
+      padding-bottom: 10px;
+      .searchField {
+        width: 80% !important;
+        svg {
+          width: 24px;
+          height: 24px;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

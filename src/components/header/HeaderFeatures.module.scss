@@ -1,0 +1,77 @@
+@import "../../styles/mixin.scss";
+
+.headerFeatures {
+  width: 33%;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+
+  .badgeCard {
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 50%;
+    transition: 0.3s all ease;
+
+    &:hover {
+      background-color: white;
+    }
+  }
+  .notification {
+    width: 22px;
+    height: 22px;
+    font-size: 18px;
+    border: 1px solid white;
+    background-color: red;
+  }
+  .avatar {
+    padding: 3px !important;
+  }
+}
+
+.actions {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  button {
+    font-weight: bold;
+    border-radius: 15px;
+  }
+}
+
+@include responsive(md) {
+  .headerFeatures {
+    flex: 1;
+  }
+  .actions {
+    display: none;
+  }
+}
+
+@include responsive(sm) {
+  .headerFeatures {
+    gap: 7px;
+    .avatar {
+      padding: 0 !important;
+      width: 30px !important;
+      height: 30px !important;
+      div {
+        width: 30px !important;
+        height: 30px !important;
+      }
+    }
+
+    .notification {
+      width: 18px;
+      height: 18px;
+      font-size: 16px;
+    }
+
+    button > svg {
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+}

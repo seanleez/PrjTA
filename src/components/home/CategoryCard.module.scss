@@ -1,6 +1,6 @@
 @import "../../styles/mixin.scss";
 
-.card-container {
+.container {
   width: 16%;
   text-align: center;
   border-radius: 20px !important;
@@ -48,12 +48,12 @@
 }
 
 @include responsive(xl) {
-  .card-container {
+  .container {
     width: 18%;
   }
 }
 @include responsive(md) {
-  .card-container {
+  .container {
     width: 20%;
 
     .title {
@@ -68,7 +68,7 @@
 }
 
 @include responsive(sm) {
-  .card-container {
+  .container {
     margin-bottom: 10px;
     width: 32%;
   }

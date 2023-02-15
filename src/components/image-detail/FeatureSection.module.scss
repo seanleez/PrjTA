@@ -1,4 +1,4 @@
-@import "../../../styles/mixin.scss";
+@import "../../styles/mixin.scss";
 
 $span-color: "#595959";
 
@@ -67,6 +67,7 @@ $span-color: "#595959";
 
     button {
       width: 100%;
+      max-width: 500px;
       height: 40px;
       font-size: 16px;
       font-weight: bold;
@@ -96,7 +97,8 @@ $span-color: "#595959";
     .actions {
       gap: 10px;
       button {
-        width: 350px;
+        width: 100%;
+        max-width: 300px;
       }
     }
   }

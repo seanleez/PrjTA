@@ -45,3 +45,10 @@ p {
     }
   }
 }
+
+@include responsive(sm) {
+  div.MuiInputBase-root {
+    border-radius: 10px;
+    background-color: var(--white) !important;
+  }
+}

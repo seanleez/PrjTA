@@ -22,9 +22,7 @@ const CategoryCard: React.FC<ICategoryCard> = ({
 }) => {
   return (
     <Card
-      className={`${styles["card-container"]} ${
-        active ? styles["active"] : ""
-      }`}
+      className={`${styles.container} ${active ? styles.active : ""}`}
       onClick={onClickCard}
     >
       <CardActionArea>
