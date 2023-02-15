@@ -1,3 +1,4 @@
+import { useAppSelector } from "@hooks/reduxToolkitHooks";
 import { ShoppingCart, Edit, Logout } from "@mui/icons-material";
 import {
   Avatar,
@@ -29,10 +30,10 @@ const NAVIGATION_LIST: INavigationItem[] = [
   },
 ];
 
-const HeaderFeatures: React.FC<{ isLoggin: boolean }> = ({ isLoggin }) => {
+const HeaderFeatures: React.FC = () => {
   const [anchorElMenu, setAnchorElUser] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
-
+  const isLogin = useAppSelector((state) => state.auth.isLogin);
   const handleOpenActionMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -50,7 +51,7 @@ const HeaderFeatures: React.FC<{ isLoggin: boolean }> = ({ isLoggin }) => {
 
   return (
     <>
-      {isLoggin ? (
+      {isLogin ? (
         <div className={`${styles.headerFeatures}`}>
           <Tooltip title="Cart">
             <Badge

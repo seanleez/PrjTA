@@ -11,13 +11,13 @@ import {
   Typography,
 } from "@mui/material";
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
 import styles from "./LoginForm.module.scss";
 
-import { useDispatch } from "react-redux";
-import { setCredentials } from "@redux/slices/authSlice";
+import { useAppDispatch, useAppSelector } from "@hooks/reduxToolkitHooks";
+import { logIn } from "@redux/slices/authSlice";
 import { useLoginMutation } from "@services/authApiSlice";
 import clsx from "clsx";
 
@@ -29,12 +29,12 @@ interface IValues {
 const LoginForm: React.FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [login, { isLoading }] = useLoginMutation();
-  const dispatch = useDispatch();
-
+  const dispatch = useAppDispatch();
+  const { isLogin, accessToken } = useAppSelector((state) => state.auth);
   const formik = useFormik({
     initialValues: {
       email: "vanviendong@gmail.com",
-      password: "donglee123",
+      password: "donglee12s3",
     },
     validationSchema: yup.object().shape({
       email: yup
@@ -55,11 +55,8 @@ const LoginForm: React.FC = () => {
       console.log(values);
       try {
         const accessToken = await login(values).unwrap();
-        const credentials = {
-          userEmail: formik.values.email,
-          accessToken,
-        };
-        dispatch(setCredentials(credentials));
+
+        dispatch(logIn({ accessToken }));
       } catch (error) {}
     })();
   }
@@ -73,7 +70,8 @@ const LoginForm: React.FC = () => {
       spellCheck="false"
     >
       <Typography className={`${styles.title}`}>Welcome Back!</Typography>
-
+      {<h1>{JSON.stringify(isLogin)}</h1>}
+      {<h1>{JSON.stringify(accessToken)}</h1>}
       <TextField
         placeholder="Email *"
         name="email"

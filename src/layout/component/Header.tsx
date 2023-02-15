@@ -8,8 +8,6 @@ type THeader = {
   layout: string;
 };
 
-const IS_LOGIN = true;
-
 const Header: React.FC<THeader> = ({ layout }) => {
   return (
     <>
@@ -20,7 +18,7 @@ const Header: React.FC<THeader> = ({ layout }) => {
       >
         <NavigationSection layout={layout} />
         <LogoImage />
-        <HeaderFeatures isLoggin={IS_LOGIN} />
+        <HeaderFeatures />
       </div>
     </>
   );
