@@ -6,8 +6,6 @@ export interface IRoute {
   layout?: "form";
 }
 
-export type TDialog = "error" | "warning" | "success";
-
 export interface INavigationItem {
   path: string;
   label: string;

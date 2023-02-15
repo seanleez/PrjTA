@@ -1,5 +1,5 @@
-import { useAppSelector } from "@hooks/reduxToolkitHooks";
-import { ShoppingCart, Edit, Logout } from "@mui/icons-material";
+import { useAppDispatch, useAppSelector } from "@hooks/reduxToolkitHooks";
+import { Edit, Logout, ShoppingCart } from "@mui/icons-material";
 import {
   Avatar,
   Badge,
@@ -11,6 +11,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
+import { logOut } from "@redux/slices/authSlice";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./HeaderFeatures.module.scss";
@@ -32,6 +33,7 @@ const NAVIGATION_LIST: INavigationItem[] = [
 
 const HeaderFeatures: React.FC = () => {
   const [anchorElMenu, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const isLogin = useAppSelector((state) => state.auth.isLogin);
   const handleOpenActionMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -44,7 +46,7 @@ const HeaderFeatures: React.FC = () => {
       if (label === "Edit Information") {
         navigate("/edit-information");
       } else {
-        // do st when log out
+        dispatch(logOut());
       }
     }
   };

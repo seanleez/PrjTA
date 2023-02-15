@@ -1,7 +1,6 @@
 import ErrorIcon from "@assets/icons/error-icon.svg";
 import SuccessIcon from "@assets/icons/success-icon.svg";
 import WarningIcon from "@assets/icons/warning-icon.svg";
-import { TDialog } from "@constants/interface";
 import {
   DialogContent,
   DialogTitle,
@@ -11,8 +10,10 @@ import {
 } from "@mui/material";
 import styles from "./ModalDialog.module.scss";
 
+type ModalType = "error" | "warning" | "success";
+
 interface IDialog {
-  type: TDialog;
+  type: ModalType;
   openDialog: boolean;
   message: string;
   onCloseDialog: () => void;
@@ -26,7 +27,7 @@ const ModalDialog: React.FC<IDialog> = ({
   onCloseDialog,
   onAcceptDialog,
 }) => {
-  const getContentByType = (type: TDialog) => {
+  const getContentByType = (type: ModalType) => {
     if (type === "error") {
       return (
         <>
