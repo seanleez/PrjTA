@@ -10,6 +10,7 @@ export const baseAuthQuery = fetchBaseQuery({
   baseUrl: import.meta.env.VITE_BASE_URL,
   prepareHeaders: (headers) => {
     const token = localStorage.getItem(ACCESS_TOKEN_KEY);
+    console.log(token);
     if (token) {
       headers.set("Authorization", `Bearer ${token}`);
     }

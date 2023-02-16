@@ -55,7 +55,6 @@ const LoginForm: React.FC = () => {
       console.log(values);
       try {
         const { accessToken } = await login(values).unwrap();
-        console.log(accessToken);
         dispatch(logIn({ accessToken }));
       } catch (error) {}
     })();
