@@ -12,7 +12,8 @@ import {
   Typography,
 } from "@mui/material";
 import { logOut } from "@redux/slices/authSlice";
-import { useState } from "react";
+import { useGetCurrentUserQuery } from "@services/userApi";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./HeaderFeatures.module.scss";
 interface INavigationItem {
@@ -36,6 +37,15 @@ const HeaderFeatures: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const isLogin = useAppSelector((state) => state.auth.isLogin);
+
+  const { data } = useGetCurrentUserQuery();
+
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+    }
+  }, [data]);
+
   const handleOpenActionMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };

@@ -18,7 +18,7 @@ import styles from "./LoginForm.module.scss";
 import { ModalDialog } from "@components/common";
 import { useAppDispatch } from "@hooks/reduxToolkitHooks";
 import { logIn } from "@redux/slices/authSlice";
-import { useLoginMutation } from "@services/authApiSlice";
+import { useLoginMutation } from "@services/authApi";
 import clsx from "clsx";
 
 interface IValues {
@@ -33,8 +33,8 @@ const LoginForm: React.FC = () => {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "vanviendong123@gmail.com",
+      password: "donglee123",
     },
     validationSchema: yup.object().shape({
       email: yup
@@ -54,7 +54,8 @@ const LoginForm: React.FC = () => {
     (async () => {
       console.log(values);
       try {
-        const accessToken = await login(values).unwrap();
+        const { accessToken } = await login(values).unwrap();
+        console.log(accessToken);
         dispatch(logIn({ accessToken }));
       } catch (error) {}
     })();

@@ -1,13 +1,12 @@
+import { ACCESS_TOKEN_KEY } from "@constants/const";
 import { createSlice } from "@reduxjs/toolkit";
 
 type TState = {
   isLogin: boolean;
-  accessToken: string | null;
 };
 
 const initialState: TState = {
-  isLogin: false,
-  accessToken: null,
+  isLogin: !!localStorage.getItem(ACCESS_TOKEN_KEY),
 };
 
 const authSlice = createSlice({
@@ -16,12 +15,12 @@ const authSlice = createSlice({
   reducers: {
     logIn: (state, action) => {
       const { accessToken } = action.payload;
+      localStorage.setItem(ACCESS_TOKEN_KEY, JSON.stringify(accessToken));
       state.isLogin = true;
-      state.accessToken = accessToken;
     },
     logOut: (state) => {
+      localStorage.removeItem(ACCESS_TOKEN_KEY);
       state.isLogin = false;
-      state.accessToken = null;
     },
   },
 });
