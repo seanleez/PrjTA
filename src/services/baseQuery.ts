@@ -26,7 +26,7 @@ export const baseQueryWithoutToken = fetchBaseQuery({
 export const baseQueryWithReauth = async (
   args: string | FetchArgs,
   api: BaseQueryApi,
-  extraOptions: {},
+  extraOptions: Record<string, unknown>,
 ) => {
   let result = await baseAuthQuery(args, api, extraOptions);
   console.log(result);
