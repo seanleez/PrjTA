@@ -1,3 +1,4 @@
+import { ACCESS_TOKEN_KEY } from "@constants/const";
 import { useAppDispatch, useAppSelector } from "@hooks/reduxToolkitHooks";
 import { Edit, Logout, ShoppingCart } from "@mui/icons-material";
 import {
@@ -12,7 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import { logOut } from "@redux/slices/authSlice";
-import { useGetCurrentUserQuery } from "@services/userApi";
+import { useLazyGetCurrentUserQuery } from "@services/userApi";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./HeaderFeatures.module.scss";
@@ -37,14 +38,17 @@ const HeaderFeatures: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const isLogin = useAppSelector((state) => state.auth.isLogin);
-
-  const { data } = useGetCurrentUserQuery();
+  const [trigger, { data: currentUser }] = useLazyGetCurrentUserQuery();
 
   useEffect(() => {
-    if (data) {
-      console.log(data);
+    if (isLogin) {
+      trigger();
     }
-  }, [data]);
+  }, [isLogin]);
+
+  useEffect(() => {
+    console.log(currentUser);
+  }, [currentUser]);
 
   const handleOpenActionMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
